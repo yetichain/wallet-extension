@@ -1,3 +1,3 @@
-# @enkryptcom/signer-ethereum
+# @yetiwallet/signer-ethereum
 
 ## Ethereum blockchain signer
