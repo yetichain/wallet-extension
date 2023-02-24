@@ -1,7 +1,7 @@
 import { BaseNetwork } from "@/types/base-network";
-import getRequestProvider, { RequestClass } from "@enkryptcom/request";
+import getRequestProvider, { RequestClass } from "@yetiwallet/request";
 import Networks from "./networks";
-import { MiddlewareFunction, OnMessageResponse } from "@enkryptcom/types";
+import { MiddlewareFunction, OnMessageResponse } from "@yetiwallet/types";
 import Middlewares from "./methods";
 import EventEmitter from "eventemitter3";
 import {
