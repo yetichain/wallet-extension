@@ -1,5 +1,5 @@
 const notifier = require("node-notifier");
 notifier.notify({
-  title: "Enkrypt compiler",
+  title: "YETI compiler",
   message: "All Done!",
 });
