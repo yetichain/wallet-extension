@@ -1,5 +1,5 @@
 {
-  "name": "enkrypt",
+  "name": "yeti",
   "packageManager": "yarn@3.2.2",
   "private": true,
   "workspaces": [
@@ -32,5 +32,8 @@
     "node-notifier": "^10.0.1",
     "nodemon": "^2.0.20",
     "ultra-runner": "^3.10.5"
+  },
+  "dependencies": {
+    "blake2": "^4.1.1"
   }
 }
