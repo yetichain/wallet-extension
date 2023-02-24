@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 import { expect } from "chai";
-import { SignerType } from "@enkryptcom/types";
+import { SignerType } from "@yetiwallet/types";
 import Signer from "../src";
 
 describe("Polkadot Address generate", () => {

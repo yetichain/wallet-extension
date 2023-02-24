@@ -1,3 +1,3 @@
-# @enkryptcom/signer-polkadot
+# @yetiwallet/signer-polkadot
 
 ## Polkadot blockchain signers

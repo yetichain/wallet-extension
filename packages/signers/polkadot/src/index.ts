@@ -4,8 +4,8 @@ import {
   Errors,
   SignerType,
   KeyPair as KRKeyPair,
-} from "@enkryptcom/types";
-import { bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+} from "@yetiwallet/types";
+import { bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import { waitReady } from "@polkadot/wasm-crypto";
 import {
   sr25519PairFromSeed,

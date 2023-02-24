@@ -1,5 +1,5 @@
 {
-  "name": "@enkryptcom/signer-polkadot",
+  "name": "@yetiwallet/signer-polkadot",
   "version": "0.0.1",
   "description": "Polkadot blockchain signers",
   "main": "dist/index.js",
@@ -18,20 +18,20 @@
   },
   "dependencies": {
     "@commitlint/cli": "^17.4.2",
-    "@enkryptcom/utils": "^0.0.1",
     "@polkadot/util": "^10.3.1",
     "@polkadot/util-crypto": "^10.3.1",
     "@polkadot/wasm-crypto": "^6.4.1",
+    "@yetiwallet/utils": "^0.0.1",
     "assert": "^2.0.0",
     "chai": "^4.3.7"
   },
   "devDependencies": {
-    "@enkryptcom/types": "^0.0.1",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
+    "@yetiwallet/types": "^0.0.1",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
@@ -49,9 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/signers/polkadot"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/signers/polkadot"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }
