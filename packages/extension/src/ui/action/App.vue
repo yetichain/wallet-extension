@@ -17,7 +17,7 @@
       <div class="app__menu-footer" :class="{ border: networks.length > 9 }">
         <a class="app__menu-add" @click="addNetworkShow = !addNetworkShow">
           <manage-networks-icon />
-          Manage networks
+          Manage Blockchains
         </a>
         <div>
           <a ref="toggle" class="app__menu-link" @click="toggleMoreMenu">
@@ -25,7 +25,7 @@
           </a>
           <div v-show="isOpenMore" ref="dropdown" class="app__menu-dropdown">
             <a class="app__menu-dropdown-link" @click="lockAction">
-              <hold-icon /> <span>Lock Enkrypt</span>
+              <hold-icon /> <span>Lock YETI</span>
             </a>
             <a class="app__menu-dropdown-link" @click="settingsAction">
               <settings-icon /> <span>Settings</span>
@@ -111,7 +111,7 @@ import NetworksState from "@/libs/networks-state";
 import openOnboard from "@/libs/utils/open-onboard";
 import { EvmNetwork } from "@/providers/ethereum/types/evm-network";
 import { fromBase } from "@/libs/utils/units";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import Browser from "webextension-polyfill";
 import EVMAccountState from "@/providers/ethereum/libs/accounts-state";
 import { ProviderName } from "@/types/provider";
@@ -173,7 +173,7 @@ const toggleDepositWindow = () => {
   showDepositWindow.value = !showDepositWindow.value;
 };
 const openBuyPage = () => {
-  Browser.tabs.create({ url: "https://ccswap.myetherwallet.com/" });
+  Browser.tabs.create({ url: "https://yetidex.com/buy-crypto/" });
 };
 const isKeyRingLocked = async (): Promise<boolean> => {
   return await sendToBackgroundFromAction({
@@ -285,7 +285,7 @@ const setNetwork = async (network: BaseNetwork) => {
   }
 };
 
-const onSelectedAddressChanged = async (newAccount: EnkryptAccount) => {
+const onSelectedAddressChanged = async (newAccount: YetiAccount) => {
   accountHeaderData.value.selectedAccount = newAccount;
   if (
     currentNetwork.value.provider === ProviderName.ethereum ||

@@ -1,4 +1,4 @@
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { Token } from "./token";
 
 export interface Account {
@@ -9,8 +9,8 @@ export interface Account {
 }
 
 export interface AccountsHeaderData {
-  selectedAccount: EnkryptAccount | null;
-  activeAccounts: EnkryptAccount[];
-  inactiveAccounts: EnkryptAccount[];
+  selectedAccount: YetiAccount | null;
+  activeAccounts: YetiAccount[];
+  inactiveAccounts: YetiAccount[];
   activeBalances: string[];
 }
