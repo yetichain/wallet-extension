@@ -1,3 +1,3 @@
-# @enkryptcom/utils
+# @yetiwallet/utils
 
-## utility functions for enkrypt extension
+## utility functions for yeti extension

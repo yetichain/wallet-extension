@@ -7,7 +7,7 @@ import {
 } from "crypto";
 import { scrypt } from "ethereum-cryptography/scrypt";
 import { keccak256 } from "web3-utils";
-import { EncryptedData, Errors } from "@enkryptcom/types";
+import { EncryptedData, Errors } from "@yetiwallet/types";
 import { bufferToHex, hexToBuffer } from ".";
 
 const scryptParams = {

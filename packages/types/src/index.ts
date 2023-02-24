@@ -67,7 +67,7 @@ interface HWwalletOptions {
   pathTemplate: string;
 }
 
-interface EnkryptAccount extends KeyRecord {
+interface YetiAccount extends KeyRecord {
   isHardware: boolean;
   HWOptions?: HWwalletOptions;
 }
@@ -189,7 +189,7 @@ export {
   SignOptions,
   ProviderError,
   EthEncryptedData,
-  EnkryptAccount,
+  YetiAccount,
   HWWalletAdd,
   KeyPairAdd,
 };

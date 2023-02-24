@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { MemoryStorage } from "@enkryptcom/utils";
+import { MemoryStorage } from "@yetiwallet/utils";
 import Storage from "../src";
 
 describe("Storage checker", () => {

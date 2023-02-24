@@ -1,4 +1,4 @@
-import { BrowserStorageArea } from "@enkryptcom/types";
+import { BrowserStorageArea } from "@yetiwallet/types";
 import LocalForageLib from "localforage";
 
 class LocalForage implements BrowserStorageArea {
@@ -17,7 +17,7 @@ class LocalForage implements BrowserStorageArea {
     this.storage = LocalForageLib.createInstance({
       name: this.namespace,
       driver: drivers,
-      storeName: "enkrypt_db",
+      storeName: "yeti_db",
     });
   }
 

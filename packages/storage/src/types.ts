@@ -1,4 +1,4 @@
-import { BrowserStorageArea } from "@enkryptcom/types";
+import { BrowserStorageArea } from "@yetiwallet/types";
 
 export interface StorageOptions {
   storage?: BrowserStorageArea;

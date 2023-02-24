@@ -1,3 +1,3 @@
-# @enkryptcom/storage
+# @yetiwallet/storage
 
-## Storage management for enkrypt
+## Storage management for yeti

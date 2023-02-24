@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/storage",
+  "name": "@yetiwallet/storage",
   "version": "0.0.1",
-  "description": "Storage management for enkrypt",
+  "description": "Storage management for yeti",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -16,8 +16,8 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "@enkryptcom/types": "^0.0.1",
-    "@enkryptcom/utils": "^0.0.1",
+    "@yetiwallet/types": "^0.0.1",
+    "@yetiwallet/utils": "^0.0.1",
     "chai": "^4.3.7",
     "localforage": "^1.10.0"
   },
@@ -44,9 +44,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/storage"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/storage"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/types",
+  "name": "@yetiwallet/types",
   "version": "0.0.1",
-  "description": "typescript types for enkrypt packages",
+  "description": "typescript types for yeti packages",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -34,9 +34,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/types"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/types"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }

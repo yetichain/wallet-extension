@@ -1,4 +1,4 @@
-import { BrowserStorageArea } from "@enkryptcom/types";
+import { BrowserStorageArea } from "@yetiwallet/types";
 
 class MemoryStorage implements BrowserStorageArea {
   private storage: { [key: string]: any } = {};

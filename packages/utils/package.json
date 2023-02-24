@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/utils",
+  "name": "@yetiwallet/utils",
   "version": "0.0.1",
-  "description": "utility functions for enkrypt extension",
+  "description": "utility functions for yeti extension",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -17,9 +17,9 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "@enkryptcom/types": "^0.0.1",
     "@ethereumjs/util": "^8.0.3",
     "@polkadot/util-crypto": "^10.3.1",
+    "@yetiwallet/types": "^0.0.1",
     "bip39": "^3.0.4",
     "chai": "^4.3.7",
     "ethereum-cryptography": "^1.2.0",

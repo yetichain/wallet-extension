@@ -1,4 +1,4 @@
-import { BrowserStorageArea } from "@enkryptcom/types";
+import { BrowserStorageArea } from "@yetiwallet/types";
 import { StorageOptions } from "./types";
 import LocalForage from "./local-forage";
 

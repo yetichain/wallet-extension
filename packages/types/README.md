@@ -1,3 +1,3 @@
-# @enkryptcom/types
+# @yetiwallet/types
 
-## typescript types for enkrypt packages
+## typescript types for yeti packages
