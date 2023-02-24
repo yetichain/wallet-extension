@@ -1,4 +1,4 @@
-import { HWwalletType, NetworkNames } from "@enkryptcom/types";
+import { HWwalletType, NetworkNames } from "@yetiwallet/types";
 import { WalletConfigs } from "./types";
 
 const walletConfigs: WalletConfigs = {
@@ -22,7 +22,7 @@ const ledgerAppNames = {
   [NetworkNames.Karura]: "Karura",
   [NetworkNames.Edgeware]: "Edgeware",
 };
-const MessengerName = "enkrypt_hw_wallets";
+const MessengerName = "yeti_hw_wallets";
 
 const bip44Paths = {
   ethereumLedger: {

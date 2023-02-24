@@ -1,6 +1,6 @@
 import type Transport from "@ledgerhq/hw-transport";
 import webUsbTransport from "@ledgerhq/hw-transport-webusb";
-import { HWwalletCapabilities, NetworkNames } from "@enkryptcom/types";
+import { HWwalletCapabilities, NetworkNames } from "@yetiwallet/types";
 import { ExtrinsicPayload } from "@polkadot/types/interfaces";
 import { u8aToBuffer } from "@polkadot/util";
 import { LedgerApps } from "./substrateApps";

@@ -1,4 +1,4 @@
-import { NetworkNames, HWwalletType } from "@enkryptcom/types";
+import { NetworkNames, HWwalletType } from "@yetiwallet/types";
 import LedgerEthereum from "./ledger/ethereum";
 import LedgerSubstrate from "./ledger/substrate";
 import TrezorEthereum from "./trezor";

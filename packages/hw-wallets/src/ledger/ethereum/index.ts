@@ -1,7 +1,7 @@
 import type Transport from "@ledgerhq/hw-transport";
 import webUsbTransport from "@ledgerhq/hw-transport-webusb";
 import ledgerService from "@ledgerhq/hw-app-eth/lib/services/ledger";
-import { HWwalletCapabilities, NetworkNames } from "@enkryptcom/types";
+import { HWwalletCapabilities, NetworkNames } from "@yetiwallet/types";
 import EthApp from "@ledgerhq/hw-app-eth";
 import { toRpcSig, publicToAddress, rlp } from "ethereumjs-util";
 import {
@@ -9,7 +9,7 @@ import {
   FeeMarketEIP1559Transaction,
 } from "@ethereumjs/tx";
 import HDKey from "hdkey";
-import { bigIntToHex, bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+import { bigIntToHex, bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import {
   AddressResponse,
   getAddressRequest,

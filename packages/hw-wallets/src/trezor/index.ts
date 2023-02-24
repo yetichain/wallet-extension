@@ -1,7 +1,7 @@
 import TrezorConnect from "@trezor/connect-web";
-import { HWwalletCapabilities, NetworkNames } from "@enkryptcom/types";
+import { HWwalletCapabilities, NetworkNames } from "@yetiwallet/types";
 import HDKey from "hdkey";
-import { bigIntToHex, bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+import { bigIntToHex, bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import { publicToAddress, toRpcSig } from "ethereumjs-util";
 import {
   FeeMarketEIP1559Transaction,
@@ -29,8 +29,8 @@ class TrezorEthereum implements HWWalletProvider {
 
   async init(): Promise<boolean> {
     TrezorConnect.manifest({
-      email: "info@enkrypt.com",
-      appUrl: "https://www.enkrypt.com",
+      email: "info@yetichain.com",
+      appUrl: "https://www.yetichain.com",
     });
     return true;
   }

@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import getDeviceInfo from "@ledgerhq/live-common/src/hw/getDeviceInfo";
 import openApp from "@ledgerhq/live-common/src/hw/openApp";
 import getAppAndVersion from "@ledgerhq/live-common/src/hw/getAppAndVersion";

@@ -1,4 +1,4 @@
-import { NetworkNames, HWwalletType } from "@enkryptcom/types";
+import { NetworkNames, HWwalletType } from "@yetiwallet/types";
 import type {
   FeeMarketEIP1559Transaction,
   Transaction as LegacyTransaction,

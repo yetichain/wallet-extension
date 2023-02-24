@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/hw-wallets",
+  "name": "@yetiwallet/hw-wallets",
   "version": "0.0.1",
-  "description": "Hardware wallet manager for enkrypt",
+  "description": "Hardware wallet manager for yeti",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -39,14 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/hw-wallets"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/hw-wallets"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT",
   "dependencies": {
-    "@enkryptcom/types": "^0.0.1",
-    "@enkryptcom/utils": "^0.0.1",
     "@ethereumjs/tx": "^4.0.2",
     "@ledgerhq/hw-app-eth": "^6.31.0",
     "@ledgerhq/hw-transport": "^6.28.0",
@@ -55,6 +53,8 @@
     "@polkadot/types": "^9.13.6",
     "@polkadot/util": "^10.3.1",
     "@trezor/connect-web": "^9.0.6",
+    "@yetiwallet/types": "^0.0.1",
+    "@yetiwallet/utils": "^0.0.1",
     "@zondax/ledger-substrate": "^0.40.4",
     "ethereumjs-util": "^7.1.5",
     "hdkey": "^2.1.0",

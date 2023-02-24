@@ -1,3 +1,3 @@
-# @enkryptcom/hw-wallets
+# @yetiwallet/hw-wallets
 
-## Hardware wallet manager for enkrypt
+## Hardware wallet manager for yeti
