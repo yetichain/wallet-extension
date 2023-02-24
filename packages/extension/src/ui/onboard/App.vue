@@ -19,10 +19,10 @@
       "
       class="onboard__info"
     >
-      <h4>Pin the Enkrypt extension</h4>
+      <h4>Pin the YETI extension</h4>
       <p>Click on <extension-icon /> in your browser</p>
       <p>
-        Find <online-icon class="onboard__online" /> Enkrypt and click
+        Find <online-icon class="onboard__online" /> YETI and click
         <pin-icon /> to pin it
       </p>
     </div>

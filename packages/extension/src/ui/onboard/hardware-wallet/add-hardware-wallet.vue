@@ -2,7 +2,7 @@
   <div class="add-hardware-wallet">
     <hardware-icon />
     <h3>Add hardware wallet account</h3>
-    <p>Select a hardware wallet you'd like to use with Enkrypt.</p>
+    <p>Select a hardware wallet you'd like to use with YETI.</p>
 
     <router-link
       v-if="isLedgerSupported"
@@ -41,8 +41,8 @@ import TrezorLogo from "@action/icons/hardware/trezor-logo.vue";
 import RightArrow from "@action/icons/common/right-arrow.vue";
 import { routes } from "./routes";
 import { useRoute } from "vue-router";
-import { HWwalletType, NetworkNames } from "@enkryptcom/types";
-import HWwallets from "@enkryptcom/hw-wallets";
+import { HWwalletType, NetworkNames } from "@yetiwallet/types";
+import HWwallets from "@yetiwallet/hw-wallets";
 import { ref } from "vue";
 const hwWallet = new HWwallets();
 const isLedgerSupported = ref(false);

@@ -1,4 +1,4 @@
-import { HWwalletType } from "@enkryptcom/types";
+import { HWwalletType } from "@yetiwallet/types";
 
 export interface PathType {
   path: string;

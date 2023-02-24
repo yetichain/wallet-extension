@@ -2,7 +2,7 @@
   <div class="type-password">
     <h3 class="type-password__title">Confirm your password</h3>
     <p class="type-password__description">
-      Enkrypt is non-custodial. We cannot restore or reset your password for
+      YETI is non-custodial. We cannot restore or reset your password for
       you. Make sure you remember it.
     </p>
 

@@ -39,8 +39,8 @@ import HardwareWalletError from "../components/hardware-wallet-error.vue";
 import { useRoute, useRouter } from "vue-router";
 import { routes } from "../routes";
 import { getNetworkByName } from "@/libs/utils/networks";
-import HWwallet, { ledgerAppNames } from "@enkryptcom/hw-wallets";
-import { HWwalletType } from "@enkryptcom/types";
+import HWwallet, { ledgerAppNames } from "@yetiwallet/hw-wallets";
+import { HWwalletType } from "@yetiwallet/types";
 import TrezorLogo from "@action/icons/hardware/trezor-logo.vue";
 import { BaseNetwork } from "@/types/base-network";
 

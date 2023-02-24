@@ -6,16 +6,16 @@
     <div class="wallet-ready__social">
       <h4>Follow us</h4>
       <div class="wallet-ready__social-wrap">
-        <a href="https://github.com/myetherwallet" target="_blank">
+        <a href="https://github.com/yetichain" target="_blank">
           <github-icon />
         </a>
-        <a href="https://www.instagram.com/myetherwallet/" target="_blank">
-          <instagram-icon />
+        <a href="https://medium.com/@yetichain" target="_blank">
+          <medium-icon />
         </a>
-        <a href="https://www.reddit.com/r/MyEtherWallet/" target="_blank">
-          <reddit-icon />
+        <a href="https://t.me/yetichain_ann" target="_blank">
+          <telegram-icon />
         </a>
-        <a href="https://twitter.com/myetherwallet" target="_blank">
+        <a href="https://twitter.com/yetichain" target="_blank">
           <twitter-icon />
         </a>
       </div>
@@ -28,8 +28,8 @@
 import BaseButton from "@action/components/base-button/index.vue";
 import LogoBig from "@action/icons/common/logo-big.vue";
 import GithubIcon from "@action/icons/social/github-icon.vue";
-import InstagramIcon from "@action/icons/social/instagram-icon.vue";
-import RedditIcon from "@action/icons/social/reddit-icon.vue";
+import MediumIcon from "@action/icons/social/medium-icon.vue";
+import TelegramIcon from "@action/icons/social/telegram-icon.vue";
 import TwitterIcon from "@action/icons/social/twitter-icon.vue";
 
 const finishAction = () => {

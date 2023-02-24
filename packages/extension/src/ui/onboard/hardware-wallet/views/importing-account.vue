@@ -57,11 +57,11 @@ import PublicKeyRing from "@/libs/keyring/public-keyring";
 import KeyRingBase from "@/libs/keyring/keyring";
 import { computed } from "@vue/reactivity";
 import {
-  EnkryptAccount,
+  YetiAccount,
   HWwalletType,
   SignerType,
   WalletType,
-} from "@enkryptcom/types";
+} from "@yetiwallet/types";
 import { routes } from "../routes";
 import { ProviderName } from "@/types/provider";
 import { useHWStore } from "../store";
@@ -80,7 +80,7 @@ if (!networkName || !walletType || !selectedAccounts.value.length) {
 const network = ref<BaseNetwork | undefined>();
 const keyring = new PublicKeyRing();
 const keyringBase = new KeyRingBase();
-const existingAccounts = ref<EnkryptAccount[]>([]);
+const existingAccounts = ref<YetiAccount[]>([]);
 const isProcessing = ref(false);
 const isProcessDone = ref(false);
 
