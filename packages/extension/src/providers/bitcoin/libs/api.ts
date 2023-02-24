@@ -1,6 +1,6 @@
 import { BTCRawInfo } from "@/types/activity";
 import { ProviderAPIInterface } from "@/types/provider";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { hexToBuffer } from "@yetiwallet/utils";
 import {
   BitcoinNetworkInfo,
   HaskoinBalanceType,

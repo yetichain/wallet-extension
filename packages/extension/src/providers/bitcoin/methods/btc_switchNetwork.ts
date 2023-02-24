@@ -2,7 +2,7 @@ import { getCustomError } from "@/libs/error";
 import { sendToBackgroundFromBackground } from "@/libs/messenger/extension";
 import { InternalMethods } from "@/types/messenger";
 import { ProviderRPCRequest } from "@/types/provider";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import BTCNetworks from "../networks";
 import DomainState from "@/libs/domain-state";
 import BitcoinProvider from "..";

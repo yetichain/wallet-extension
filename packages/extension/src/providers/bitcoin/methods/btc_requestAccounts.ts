@@ -1,4 +1,4 @@
-import { CallbackFunction, MiddlewareFunction } from "@enkryptcom/types";
+import { CallbackFunction, MiddlewareFunction } from "@yetiwallet/types";
 import type EthereumProvider from "..";
 import { ProviderRPCRequest } from "@/types/provider";
 import { WindowPromise } from "@/libs/window-promise";
