@@ -1,30 +1,30 @@
 <br />
 <div align="center">
-  <a href="https://github.com/enkryptcom/enKrypt">
-    <img src="enkrypt.png" alt="Logo">
+  <a href="https://github.com/yetichain">
+    <img src="yeti.png" alt="Logo">
   </a>
 
-  <h3 align="center">Enkrypt</h3>
+  <h3 align="center">YETI</h3>
 
   <p align="center">
-    Everything in the blockchain made easy
+    Access to the Blockchain
     <br />
-    <a href="https://chrome.google.com/webstore/detail/enkrypt-ethereum-and-polk/kkpllkodjeloidieedojogacfhpaihoh">
+    <a href="https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn">
       <strong>Download for Chrome/Brave »</strong>
     </a>
     <br />
     <br />
     ·
-    <a href="https://github.com/enkryptcom/enKrypt/issues">Report Bug</a>
+    <a href="https://github.com/yetichain/wallet-extension/issues">Report Bug</a>
     ·
-    <a href="https://github.com/enkryptcom/enKrypt/issues">Request Feature</a>
+    <a href="https://github.com/yetichain/wallet-extension/issues">Request Feature</a>
   </p>
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About Enkrypt
+## About Yeti
 
-Enkrypt is a web3 wallet built from the ground up to support the multi-chain future. Send, receive, swap, manage your tokens and NFTs, and interact with dapps on all of your favorite chains with just a few clicks. With only one seed phrase for all of your accounts Enkrypt makes it easy to manage your assets and stay secure. If you're looking for that extra layer of security Enkrypt also supports popular hardware wallets such as Ledger and Trezor.
+Yeti is a web3 wallet built from the ground up to support the multi-chain future. Send, receive, swap, manage your tokens and NFTs, and interact with dapps on all of your favorite chains with just a few clicks. With only one seed phrase for all of your accounts Yeti makes it easy to manage your assets and stay secure. If you're looking for that extra layer of security Yeti also supports popular hardware wallets such as Ledger and Trezor.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -44,7 +44,7 @@ Enkrypt is a web3 wallet built from the ground up to support the multi-chain fut
 * Karura
 * More coming soon!
 
-Looking to add your project? [Contact us!](https://mewwallet.typeform.com/enkrypt-inquiry?typeform-source=www.enkrypt.com)
+Looking to add your project? [Contact us!](https://docs.google.com/forms/d/e/1FAIpQLSd1XWl6xbEdGs9bygmGrpOcsCYr3yaTL9MimZFHmLvOYFzg_w/viewform)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -75,7 +75,7 @@ To get started make sure you have `nodejs` and `nvm` installed on your system
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/enkryptcom/enKrypt.git
+   git clone https://github.com/yetichain/wallet-extension.git
    ```
 2. Install NPM packages
    ```sh
@@ -130,10 +130,10 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Twitter - [@enkrypt](https://twitter.com/enkrypt)
+Twitter - [@yetichain](https://twitter.com/yetichain)
 
-Email - info@enkrypt.com
+Email - info@yetichain.com
 
-Homepage - [https://www.enkrypt.com/](https://www.enkrypt.com/)
+Homepage - [https://www.yetichain.com/](https://www.yetichain.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
