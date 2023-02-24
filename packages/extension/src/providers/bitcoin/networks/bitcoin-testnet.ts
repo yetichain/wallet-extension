@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import {
   BitcoinNetwork,
   BitcoinNetworkOptions,

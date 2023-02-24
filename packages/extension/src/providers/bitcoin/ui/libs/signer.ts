@@ -2,7 +2,7 @@ import { InternalMethods, InternalOnMessageResponse } from "@/types/messenger";
 import { SignerTransactionOptions, SignerMessageOptions } from "../types";
 import { bufferToHex } from "ethereumjs-util";
 import sendUsingInternalMessengers from "@/libs/messenger/internal-messenger";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { hexToBuffer } from "@yetiwallet/utils";
 import { Psbt } from "bitcoinjs-lib";
 import { signAsync } from "bitcoinjs-message";
 

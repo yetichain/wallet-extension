@@ -71,7 +71,7 @@ import InfoIconGray from "@action/icons/common/info-icon-gray.vue";
 import SelectAccountInput from "@action/components/select-account-input/index.vue";
 import ModalAccounts from "@action/views/modal-accounts/index.vue";
 import { AccountsHeaderData } from "@action/types/account";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { DEFAULT_BTC_NETWORK, getNetworkByName } from "@/libs/utils/networks";
 import { WindowPromiseHandler } from "@/libs/window-promise";
 import { BitcoinNetwork } from "../types/bitcoin-network";
@@ -92,7 +92,7 @@ const accountHeaderData = ref<AccountsHeaderData>({
   selectedAccount: {
     name: "",
     address: "",
-  } as EnkryptAccount,
+  } as YetiAccount,
   activeBalances: [],
 });
 
@@ -160,7 +160,7 @@ const toggleAccounts = () => {
   showAccounts.value = !showAccounts.value;
 };
 
-const onSelectedAddressChanged = async (newAccount: EnkryptAccount) => {
+const onSelectedAddressChanged = async (newAccount: YetiAccount) => {
   accountHeaderData.value.selectedAccount = newAccount;
   displayAddress.value = network.value.displayAddress(newAccount.address);
   identicon.value = network.value.identicon(newAccount.address);

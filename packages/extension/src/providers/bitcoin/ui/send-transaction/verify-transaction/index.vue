@@ -87,7 +87,7 @@ import { DEFAULT_BTC_NETWORK, getNetworkByName } from "@/libs/utils/networks";
 import { TransactionSigner } from "../../libs/signer";
 import { ActivityStatus, Activity, ActivityType } from "@/types/activity";
 import ActivityState from "@/libs/activity-state";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import CustomScrollbar from "@action/components/custom-scrollbar/index.vue";
 import { BitcoinNetwork } from "@/providers/bitcoin/types/bitcoin-network";
 import BitcoinAPI from "@/providers/bitcoin/libs/api";
@@ -102,7 +102,7 @@ const txData: VerifyTransactionParams = JSON.parse(
 const isProcessing = ref(false);
 const network = ref<BitcoinNetwork>(DEFAULT_BTC_NETWORK);
 const isSendDone = ref(false);
-const account = ref<EnkryptAccount>();
+const account = ref<YetiAccount>();
 const isPopup: boolean = getCurrentContext() === "new-window";
 const verifyScrollRef = ref<ComponentPublicInstance<HTMLElement>>();
 const isWindowPopup = ref(false);

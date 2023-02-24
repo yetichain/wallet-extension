@@ -135,7 +135,7 @@ import { ProviderRequestOptions } from "@/types/provider";
 import { GasFeeType } from "./types";
 import MarketData from "@/libs/market-data";
 import { defaultGasCostVals } from "@/providers/common/libs/default-vals";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { TransactionSigner } from "./libs/signer";
 import { Activity, ActivityStatus, ActivityType } from "@/types/activity";
 import ActivityState from "@/libs/activity-state";
@@ -159,10 +159,10 @@ const nativePrice = ref<string>("0");
 const network = ref<BitcoinNetwork>(DEFAULT_BTC_NETWORK);
 const marketdata = new MarketData();
 const gasCostValues = ref<GasFeeType>(defaultGasCostVals);
-const account = ref<EnkryptAccount>({
+const account = ref<YetiAccount>({
   name: "",
   address: "",
-} as EnkryptAccount);
+} as YetiAccount);
 const identicon = ref<string>("");
 const windowPromise = WindowPromiseHandler(3);
 const tx = ref<RPCTxType>({
@@ -186,7 +186,7 @@ onBeforeMount(async () => {
   network.value = (await getNetworkByName(
     Request.value.params![2]
   )) as BitcoinNetwork;
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
   tx.value = Request.value.params![0];
   identicon.value = network.value.identicon(account.value.address);
   Options.value = options;

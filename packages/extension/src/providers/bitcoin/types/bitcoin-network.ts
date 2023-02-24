@@ -3,12 +3,12 @@ import BitcoinAPI from "@/providers/bitcoin/libs/api";
 import { AssetsType } from "@/types/provider";
 import { BaseToken, BaseTokenOptions } from "@/types/base-token";
 import { ProviderName } from "@/types/provider";
-import { NetworkNames, SignerType } from "@enkryptcom/types";
+import { NetworkNames, SignerType } from "@yetiwallet/types";
 import createIcon from "../libs/blockies";
 import { Activity } from "@/types/activity";
 import { BitcoinNetworkInfo } from ".";
 import { payments } from "bitcoinjs-lib";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { hexToBuffer } from "@yetiwallet/utils";
 import {
   formatFiatValue,
   formatFloatingPointValue,

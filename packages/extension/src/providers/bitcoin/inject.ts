@@ -9,7 +9,7 @@ import {
   SendMessageHandler,
 } from "@/types/provider";
 import { EXTENSION_VERSION } from "@/configs/constants";
-import { EnkryptWindow } from "@/types/globals";
+import { YetiWindow } from "@/types/globals";
 import { BitcoinNetworks } from "./types";
 
 export class Provider extends EventEmitter implements ProviderInterface {
@@ -44,10 +44,10 @@ export class Provider extends EventEmitter implements ProviderInterface {
 }
 
 const injectDocument = (
-  document: EnkryptWindow | Window,
+  document: YetiWindow | Window,
   options: ProviderOptions
 ): void => {
   const provider = new Provider(options);
-  document["enkrypt"]["providers"][options.name] = provider;
+  document["yeti"]["providers"][options.name] = provider;
 };
 export default injectDocument;

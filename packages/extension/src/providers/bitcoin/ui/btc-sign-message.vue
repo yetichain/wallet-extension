@@ -59,21 +59,21 @@ import { getError } from "@/libs/error";
 import { ErrorCodes } from "@/providers/ethereum/types";
 import { WindowPromiseHandler } from "@/libs/window-promise";
 import { onBeforeMount, ref } from "vue";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { hexToBuffer } from "@yetiwallet/utils";
 import { hexToUtf8 } from "web3-utils";
 import { DEFAULT_BTC_NETWORK, getNetworkByName } from "@/libs/utils/networks";
 import { ProviderRequestOptions } from "@/types/provider";
 import { isUtf8 } from "@polkadot/util";
 import { BitcoinNetwork } from "../types/bitcoin-network";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { MessageSigner } from "./libs/signer";
 
 const windowPromise = WindowPromiseHandler(3);
 const network = ref<BitcoinNetwork>(DEFAULT_BTC_NETWORK);
-const account = ref<EnkryptAccount>({
+const account = ref<YetiAccount>({
   name: "",
   address: "",
-} as EnkryptAccount);
+} as YetiAccount);
 const identicon = ref<string>("");
 const Options = ref<ProviderRequestOptions>({
   domain: "",
@@ -89,7 +89,7 @@ onBeforeMount(async () => {
   network.value = (await getNetworkByName(
     Request.value.params![2]
   )) as BitcoinNetwork;
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
   identicon.value = network.value.identicon(account.value.address);
   Options.value = options;
   message.value = isUtf8(Request.value.params![0])

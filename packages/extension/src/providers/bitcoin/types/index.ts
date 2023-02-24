@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import type { Provider as InjectedProvider } from "../inject";
 
 export const BitcoinNetworks = {

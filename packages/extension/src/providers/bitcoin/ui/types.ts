@@ -1,5 +1,5 @@
 import { ToTokenData } from "@/ui/action/types/token";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { GasPriceTypes } from "@/providers/common/types";
 import { BitcoinNetwork } from "../types/bitcoin-network";
 
@@ -33,11 +33,11 @@ export interface VerifyTransactionParams {
 export interface SignerTransactionOptions {
   payload: BTCTxInfo;
   network: BitcoinNetwork;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
 
 export interface SignerMessageOptions {
   payload: Buffer;
   network: BitcoinNetwork;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
