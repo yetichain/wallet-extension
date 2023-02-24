@@ -1,6 +1,6 @@
 import { mnemonicToSeed } from "bip39";
-import { Errors, SignerInterface, KeyPair } from "@enkryptcom/types";
-import { hexToBuffer, bufferToHex } from "@enkryptcom/utils";
+import { Errors, SignerInterface, KeyPair } from "@yetiwallet/types";
+import { hexToBuffer, bufferToHex } from "@yetiwallet/utils";
 import { getPublicKey, verify, sign } from "@noble/secp256k1";
 import HDkey from "hdkey";
 

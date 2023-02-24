@@ -1,4 +1,4 @@
-import { bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+import { bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import { getPublicKey } from "@noble/secp256k1";
 import { expect } from "chai";
 import Signer from "../src";
