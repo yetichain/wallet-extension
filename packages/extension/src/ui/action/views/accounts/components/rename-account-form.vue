@@ -50,7 +50,7 @@
 import { PropType, ref, onMounted, computed } from "vue";
 import BaseButton from "@action/components/base-button/index.vue";
 import { NodeType } from "@/types/provider";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import KeyRing from "@/libs/keyring/keyring";
 
 const isFocus = ref(false);
@@ -68,7 +68,7 @@ const props = defineProps({
     default: () => ({}),
   },
   account: {
-    type: Object as PropType<EnkryptAccount>,
+    type: Object as PropType<YetiAccount>,
     default: () => ({}),
   },
 });

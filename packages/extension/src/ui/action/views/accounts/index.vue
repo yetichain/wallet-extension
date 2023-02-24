@@ -113,14 +113,14 @@ import { AccountsHeaderData } from "../../types/account";
 import { PropType, ref } from "vue";
 import openHardware from "@/libs/utils/open-hardware";
 import scrollSettings from "@/libs/utils/scroll-settings";
-import { EnkryptAccount } from "@enkryptcom/types";
-import HWwallets from "@enkryptcom/hw-wallets";
-import { SignerType } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
+import HWwallets from "@yetiwallet/hw-wallets";
+import { SignerType } from "@yetiwallet/types";
 import { BaseNetwork } from "@/types/base-network";
-import { WalletType } from "@enkryptcom/types";
+import { WalletType } from "@yetiwallet/types";
 
 const emit = defineEmits<{
-  (e: "addressChanged", account: EnkryptAccount): void;
+  (e: "addressChanged", account: YetiAccount): void;
 }>();
 const isAddAccount = ref(false);
 const isRenameAccount = ref(false);
@@ -142,8 +142,8 @@ const props = defineProps({
     default: () => ({}),
   },
 });
-const accountToRename = ref<EnkryptAccount>();
-const accountToDelete = ref<EnkryptAccount>();
+const accountToRename = ref<YetiAccount>();
+const accountToDelete = ref<YetiAccount>();
 
 const close = () => {
   props.toggle();

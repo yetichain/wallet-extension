@@ -49,12 +49,12 @@ import BaseButton from "@action/components/base-button/index.vue";
 import { NodeType } from "@/types/provider";
 import { sendToBackgroundFromAction } from "@/libs/messenger/extension";
 import { InternalMethods } from "@/types/messenger";
-import { EnkryptAccount, KeyRecordAdd, WalletType } from "@enkryptcom/types";
+import { YetiAccount, KeyRecordAdd, WalletType } from "@yetiwallet/types";
 import Keyring from "@/libs/keyring/public-keyring";
 
 const isFocus = ref(false);
 const accountName = ref("");
-const newAccount = ref<EnkryptAccount | null>(null);
+const newAccount = ref<YetiAccount | null>(null);
 const isDisabled = ref(true);
 const addAccountInput = ref(null);
 
@@ -85,7 +85,7 @@ const setNewAccountInfo = async () => {
     }),
   }).then((res) => {
     if (res.result) {
-      newAccount.value = JSON.parse(res.result) as EnkryptAccount;
+      newAccount.value = JSON.parse(res.result) as YetiAccount;
     }
   });
 };

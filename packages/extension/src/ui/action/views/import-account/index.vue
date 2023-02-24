@@ -79,7 +79,7 @@ import ImportAccountPrivateKey from "./views/import-account-private-key.vue";
 // import ImportAccountStartDot from "./views/import-account-start-dot.vue";
 // import ImportAccountSelectAccountDot from "./views/import-account-select-account-dot.vue";
 import { BaseNetwork } from "@/types/base-network";
-import { KeyPairAdd, SignerType } from "@enkryptcom/types";
+import { KeyPairAdd, SignerType } from "@yetiwallet/types";
 
 const isStart = ref(true);
 const isKeystoreFile = ref(false);

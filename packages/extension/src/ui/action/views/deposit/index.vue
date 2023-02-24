@@ -58,7 +58,7 @@ import CloseIcon from "@action/icons/common/close-icon.vue";
 import CopyIcon from "@action/icons/header/copy_icon.vue";
 import { NodeType } from "@/types/provider";
 import QrcodeVue from "qrcode.vue";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import Notification from "@action/components/notification/index.vue";
 
 const isCopied = ref(false);
@@ -69,7 +69,7 @@ defineProps({
     default: () => ({}),
   },
   account: {
-    type: Object as PropType<EnkryptAccount>,
+    type: Object as PropType<YetiAccount>,
     default: () => {
       return {};
     },

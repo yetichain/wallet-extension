@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import KeyRingBase from "@/libs/keyring/keyring";
 import BaseButton from "@action/components/base-button/index.vue";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { PropType } from "vue";
 
 const emit = defineEmits<{
@@ -40,7 +40,7 @@ const emit = defineEmits<{
 
 const props = defineProps({
   account: {
-    type: Object as PropType<EnkryptAccount>,
+    type: Object as PropType<YetiAccount>,
     default: () => ({}),
   },
 });

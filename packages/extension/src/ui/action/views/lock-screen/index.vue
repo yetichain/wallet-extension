@@ -54,7 +54,7 @@ import { computed } from "@vue/reactivity";
 import SwapLookingAnimation from "@action/icons/swap/swap-looking-animation.vue";
 import BitcoinNetworks from "@/providers/bitcoin/networks";
 import KeyRing from "@/libs/keyring/keyring";
-import { NetworkNames, WalletType } from "@enkryptcom/types";
+import { NetworkNames, WalletType } from "@yetiwallet/types";
 import { getAccountsByNetworkName } from "@/libs/utils/accounts";
 
 const emit = defineEmits<{

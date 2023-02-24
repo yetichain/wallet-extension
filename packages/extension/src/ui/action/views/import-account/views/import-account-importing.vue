@@ -60,7 +60,7 @@ import HardwareImportingAccount from "@/ui/onboard/hardware-wallet/components/ha
 import ImportAccountProcess from "../components/import-account-process.vue";
 import { BaseNetwork } from "@/types/base-network";
 import API from "@/providers/ethereum/libs/api";
-import { EnkryptAccount, KeyPairAdd } from "@enkryptcom/types";
+import { YetiAccount, KeyPairAdd } from "@yetiwallet/types";
 import { formatFloatingPointValue } from "@/libs/utils/number-formatter";
 import { fromBase } from "@/libs/utils/units";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
@@ -75,7 +75,7 @@ const balance = ref("0.00");
 const nodeAPI = ref<API>();
 const pubKeyRing = new PublicKeyRing();
 const keyringBase = new KeyRingBase();
-const allAccounts = ref<EnkryptAccount[]>([]);
+const allAccounts = ref<YetiAccount[]>([]);
 const nameValue = ref("");
 const keyringError = ref(false);
 const keyringPassword = ref("");

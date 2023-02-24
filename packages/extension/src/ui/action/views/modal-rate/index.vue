@@ -3,7 +3,7 @@
     <div class="rate__overlay" @click="close()" />
     <div class="rate__wrap">
       <div class="rate__header">
-        <h2>Enjoying Enkrypt so far?</h2>
+        <h2>Enjoying YETI so far?</h2>
         <a class="rate__close" @click="close()">
           <close-icon />
         </a>
@@ -39,22 +39,22 @@ const close = async () => {
 const goToFeedback = async () => {
   await rateState.resetPopupTimer();
 
-  openLink("https://www.enkrypt.com/?ref=enkrypt_help");
+  openLink("https://docs.yetichain.com/");
 };
 
 const rateLinks: Record<string, string> = {
   [BROWSER_NAMES.chrome]:
-    "https://chrome.google.com/webstore/detail/enkrypt-ethereum-polkadot/kkpllkodjeloidieedojogacfhpaihoh",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
   [BROWSER_NAMES.firefox]:
-    "https://addons.mozilla.org/en-US/firefox/addon/enkrypt/reviews/",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
   [BROWSER_NAMES.opera]:
-    "https://addons.opera.com/en/extensions/details/enkrypt/",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
   [BROWSER_NAMES.edge]:
-    "https://microsoftedge.microsoft.com/addons/detail/enkrypt-ethereum-polkad/gfenajajnjjmmdojhdjmnngomkhlnfjl",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
   [BROWSER_NAMES.brave]:
-    "https://chrome.google.com/webstore/detail/enkrypt-ethereum-polkadot/kkpllkodjeloidieedojogacfhpaihoh",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
   [BROWSER_NAMES.safari]:
-    "https://apps.apple.com/ae/app/enkrypt-web3-wallet/id1640164309?mt=12",
+    "https://chrome.google.com/webstore/detail/yeti-web30-decentralised/odpnjmimokcmjgojhnhfcnalnegdjmdn",
 };
 
 const goToRate = async () => {

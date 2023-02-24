@@ -42,7 +42,7 @@ import type { KeyringPair$Json } from "@polkadot/keyring/types";
 import { BaseNetwork } from "@/types/base-network";
 import { ProviderName } from "@/types/provider";
 import { getAccountFromJSON } from "@/providers/polkadot/libs/keystore";
-import { KeyPairAdd } from "@enkryptcom/types";
+import { KeyPairAdd } from "@yetiwallet/types";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 
 const emit = defineEmits<{
