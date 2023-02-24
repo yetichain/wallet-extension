@@ -2,7 +2,7 @@ import EvmAPI from "@/providers/ethereum/libs/api";
 import SubstrateAPI from "@/providers/polkadot/libs/api";
 import BitcoinAPI from "@/providers/bitcoin/libs/api";
 import { AssetsType, ProviderName } from "@/types/provider";
-import { CoingeckoPlatform, SignerType, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, SignerType, NetworkNames } from "@yetiwallet/types";
 import { Activity } from "./activity";
 import { BaseToken } from "./base-token";
 import { BNLike } from "ethereumjs-util";

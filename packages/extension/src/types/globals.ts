@@ -1,7 +1,7 @@
 import { SettingsType } from "@/libs/settings-state/types";
 
-export interface EnkryptWindow {
-  enkrypt: {
+export interface YetiWindow {
+  yeti: {
     providers: {
       [key: string]: any;
     };

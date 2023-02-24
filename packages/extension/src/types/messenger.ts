@@ -1,13 +1,13 @@
-import type { Endpoint } from "@enkryptcom/extension-bridge/dist/types";
+import type { Endpoint } from "@yetiwallet/extension-bridge/dist/types";
 import type { ProviderName } from "./provider";
-import type { OnMessageResponse, ProviderError } from "@enkryptcom/types";
+import type { OnMessageResponse, ProviderError } from "@yetiwallet/types";
 
 export enum MessageType {
-  WINDOW_REQUEST = "enkrypt_window_request",
-  NEWWINDOW_REQUEST = "enkrypt_new_window_request",
-  ACTION_REQUEST = "enkrypt_action_request",
-  CS_REQUEST = "enkrypt_cs_request",
-  BACKGROUND_REQUEST = "enkrypt_background_request",
+  WINDOW_REQUEST = "yeti_window_request",
+  NEWWINDOW_REQUEST = "yeti_new_window_request",
+  ACTION_REQUEST = "yeti_action_request",
+  CS_REQUEST = "yeti_cs_request",
+  BACKGROUND_REQUEST = "yeti_background_request",
 }
 export enum Destination {
   contentScript = "content-script",
@@ -18,23 +18,23 @@ export enum Destination {
 }
 
 export enum InjectedIDs {
-  main = "enkrypt-inject",
+  main = "yeti-inject",
 }
 
 export enum InternalMethods {
-  getEthereumEncryptionPublicKey = "enkrypt_eth_encryption_pubkey",
-  ethereumDecrypt = "enkrypt_eth_decrypt",
-  sign = "enkrypt_sign_hash",
-  unlock = "enkrypt_unlock_keyring",
-  lock = "enkrypt_lock_keyring",
-  isLocked = "enkrypt_is_locked_keyring",
-  newWindowInit = "enkrypt_newWindowInit",
-  getSettings = "enkrypt_getAllSettings",
-  newWindowUnload = "enkrypt_newWindowUnload",
-  sendToTab = "enkrypt_sendToTab",
-  getNewAccount = "enkrypt_getNewAccount",
-  saveNewAccount = "enkrypt_saveNewAccount",
-  changeNetwork = "enkrypt_changeNetwork",
+  getEthereumEncryptionPublicKey = "yeti_eth_encryption_pubkey",
+  ethereumDecrypt = "yeti_eth_decrypt",
+  sign = "yeti_sign_hash",
+  unlock = "yeti_unlock_keyring",
+  lock = "yeti_lock_keyring",
+  isLocked = "yeti_is_locked_keyring",
+  newWindowInit = "yeti_newWindowInit",
+  getSettings = "yeti_getAllSettings",
+  newWindowUnload = "yeti_newWindowUnload",
+  sendToTab = "yeti_sendToTab",
+  getNewAccount = "yeti_getNewAccount",
+  saveNewAccount = "yeti_saveNewAccount",
+  changeNetwork = "yeti_changeNetwork",
 }
 export interface SendMessage {
   [key: string]: any;

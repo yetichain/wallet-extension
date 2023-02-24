@@ -9,7 +9,7 @@ import {
   OnMessageResponse,
   RPCRequestType,
   SignerType,
-} from "@enkryptcom/types";
+} from "@yetiwallet/types";
 import { RouteRecordRaw } from "vue-router";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 import { RoutesType } from "./ui";
@@ -19,7 +19,7 @@ import { BaseToken } from "./base-token";
 import { BTCRawInfo, EthereumRawInfo, SubscanExtrinsicInfo } from "./activity";
 
 export enum ProviderName {
-  enkrypt = "enkrypt",
+  yeti = "yeti",
   ethereum = "ethereum",
   bitcoin = "bitcoin",
   polkadot = "polkadot",
@@ -41,7 +41,7 @@ export enum InternalStorageNamespace {
   customNetworksState = "CustomNetworksState",
   rateState = "RateState",
 }
-export enum EnkryptProviderEventMethods {
+export enum YetiProviderEventMethods {
   persistentEvents = "PersistentEvents",
 }
 export type StorageNamespace = ProviderName | InternalStorageNamespace;
