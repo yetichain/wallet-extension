@@ -36,7 +36,7 @@
 
     <div class="settings__copyright">
       <p>Version {{ version }}</p>
-      <p>© 2022 by MyEtherWallet Inc.</p>
+      <p>© 2022 by YETI Chain</p>
     </div>
 
     <modal-sign
@@ -74,7 +74,7 @@ defineEmits<{
 
 const bugAction = () => {
   window.open(
-    "https://hackerone.com/myetherwallet?type=team",
+    "https://docs.yetichain.com/",
     "_blank",
     "noopener"
   );
@@ -82,7 +82,7 @@ const bugAction = () => {
 
 const privacyAction = () => {
   window.open(
-    "https://www.myetherwallet.com/privacy-policy",
+    "https://yetichain.com/privacy-policy",
     "_blank",
     "noopener"
   );
@@ -90,7 +90,7 @@ const privacyAction = () => {
 
 const contactSupport = () => {
   window.open(
-    "https://www.enkrypt.com/?ref=enkrypt_help",
+    "https://docs.yetichain.com/",
     "_blank",
     "noopener"
   );

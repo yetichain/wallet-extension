@@ -65,7 +65,7 @@
       </p>
       <p>
         Offer includes
-        {{ new BigNumber(pickedTrade.fee).times(100).toFixed() }}% Enkrypt fee
+        {{ new BigNumber(pickedTrade.fee).times(100).toFixed() }}% YETI fee
       </p>
     </div>
   </div>

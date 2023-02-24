@@ -33,7 +33,7 @@ import CustomScrollbar from "@action/components/custom-scrollbar/index.vue";
 import BaseButton from "@action/components/base-button/index.vue";
 import scrollSettings from "@/libs/utils/scroll-settings";
 import { BaseNetwork } from "@/types/base-network";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 
 const emit = defineEmits<{
   (e: "update:pasteFromClipboard"): void;
@@ -43,7 +43,7 @@ const emit = defineEmits<{
 defineProps({
   showAccounts: Boolean,
   accounts: {
-    type: Object as PropType<EnkryptAccount[]>,
+    type: Object as PropType<YetiAccount[]>,
     default: () => ({}),
   },
   network: {

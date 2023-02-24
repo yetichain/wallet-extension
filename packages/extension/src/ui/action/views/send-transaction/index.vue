@@ -15,7 +15,7 @@ const sendLayouts: Record<ProviderName, any> = {
   [ProviderName.ethereum]: SendTransactionEVM,
   [ProviderName.polkadot]: SendTransactionSubstrate,
   [ProviderName.bitcoin]: SendTransactionBTC,
-  [ProviderName.enkrypt]: null,
+  [ProviderName.yeti]: null,
 };
 const layout = shallowRef();
 const route = useRoute();

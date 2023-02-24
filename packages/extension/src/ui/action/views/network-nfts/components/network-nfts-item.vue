@@ -42,7 +42,7 @@ import NetworkNftsItemMoreMenu from "./network-nfts-item-more-menu.vue";
 import NftDetailView from "@action/views/nft-detail-view/index.vue";
 import { onClickOutside } from "@vueuse/core";
 import DomainState from "@/libs/domain-state";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 
 const domainState = new DomainState();
 const notfoundimg = require("@action/assets/common/not-found.jpg");

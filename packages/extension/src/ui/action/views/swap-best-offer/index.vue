@@ -122,7 +122,7 @@ import { defaultGasCostVals } from "@/providers/common/libs/default-vals";
 import { SwapBestOfferWarnings } from "./components/types";
 import { Erc20Token } from "@/providers/ethereum/types/erc20-token";
 import { NATIVE_TOKEN_ADDRESS } from "@/providers/ethereum/libs/common";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { getNetworkByName } from "@/libs/utils/networks";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 
@@ -147,7 +147,7 @@ const scrollProgress = ref(0);
 const height = ref(460);
 const selectedNetwork: string = route.query.id as string;
 const network = ref<BaseNetwork>();
-const account = ref<EnkryptAccount>();
+const account = ref<YetiAccount>();
 const swapData: SwapData = JSON.parse(
   Buffer.from(route.query.swapData as string, "base64").toString("utf8")
 );

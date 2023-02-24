@@ -127,12 +127,12 @@ import BigNumber from "bignumber.js";
 import { Rates } from "@/providers/swap/types/SwapProvider";
 import { SubstrateNetwork } from "@/providers/polkadot/types/substrate-network";
 import { UnknownToken } from "@/types/unknown-token";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { SwapError } from "./components/swap-error/types";
 import { getAccountsByNetworkName } from "@/libs/utils/accounts";
 import { routes as RouterNames } from "@/ui/action/router";
 import getUiPath from "@/libs/utils/get-ui-path";
-import UIRoutes from "@/ui/provider-pages/enkrypt/routes/names";
+import UIRoutes from "@/ui/provider-pages/yeti/routes/names";
 import { ProviderName } from "@/types/provider";
 
 const router = useRouter();
@@ -155,7 +155,7 @@ const addressIsValid = ref(false);
 const addressIsLoading = ref(false);
 const isOpenSelectContact = ref<boolean>(false);
 const addressInput = ref();
-const toAccounts = ref<EnkryptAccount[]>(props.accountInfo.activeAccounts);
+const toAccounts = ref<YetiAccount[]>(props.accountInfo.activeAccounts);
 
 const selected: string = route.params.id as string;
 const network = ref<BaseNetwork | undefined>();
@@ -574,7 +574,7 @@ const sendAction = async () => {
       url: Browser.runtime.getURL(
         getUiPath(
           `${UIRoutes.swapVerifyHW.path}?id=${routedRoute.query.id}&swapData=${routedRoute.query.swapData}`,
-          ProviderName.enkrypt
+          ProviderName.yeti
         )
       ),
       type: "popup",

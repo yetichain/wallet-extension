@@ -15,7 +15,7 @@
     />
     <div class="settings__label">
       <p>
-        Pause Enkrypt interactions with Ethereum DApps if you are using other
+        Pause YETI interactions with Ethereum DApps if you are using other
         web3 extensions
       </p>
     </div>
@@ -37,7 +37,7 @@
     ></base-select> -->
 
     <!-- <div class="settings__label">
-      <p>Set the idle time in minutes before Enkrypt will become locked.</p>
+      <p>Set the idle time in minutes before YETI will become locked.</p>
     </div> -->
   </div>
 </template>

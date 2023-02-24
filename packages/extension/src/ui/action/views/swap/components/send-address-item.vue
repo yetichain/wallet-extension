@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { PropType } from "vue";
 import { BaseNetwork } from "@/types/base-network";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 
 const emit = defineEmits<{
   (e: "selected:account", address: string): void;
@@ -38,7 +38,7 @@ defineProps({
     default: () => ({}),
   },
   account: {
-    type: Object as PropType<EnkryptAccount>,
+    type: Object as PropType<YetiAccount>,
     default: () => {
       return {};
     },
