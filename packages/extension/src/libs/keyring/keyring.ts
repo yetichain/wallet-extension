@@ -1,15 +1,15 @@
-import KeyRing from "@enkryptcom/keyring";
+import KeyRing from "@yetiwallet/keyring";
 import { InternalStorageNamespace } from "@/types/provider";
 import BrowserStorage from "../common/browser-storage";
 import {
-  EnkryptAccount,
+  YetiAccount,
   HWWalletAdd,
   KeyPairAdd,
   KeyRecordAdd,
   SignerType,
   SignOptions,
   WalletType,
-} from "@enkryptcom/types";
+} from "@yetiwallet/types";
 export class KeyRingBase {
   #keyring: KeyRing;
   constructor() {
@@ -28,7 +28,7 @@ export class KeyRingBase {
   getNewAccount(options: {
     basePath: string;
     signerType: SignerType;
-  }): Promise<EnkryptAccount> {
+  }): Promise<YetiAccount> {
     return this.#keyring.createKey({
       name: "",
       basePath: options.basePath,
@@ -36,7 +36,7 @@ export class KeyRingBase {
       walletType: WalletType.mnemonic,
     });
   }
-  saveNewAccount(options: KeyRecordAdd): Promise<EnkryptAccount> {
+  saveNewAccount(options: KeyRecordAdd): Promise<YetiAccount> {
     return this.#keyring.createAndSaveKey(options);
   }
   sign(
@@ -56,16 +56,16 @@ export class KeyRingBase {
   ): Promise<string> {
     return this.#keyring.ethereumDecrypt(encryptedMessage, options);
   }
-  getKeysArray(): Promise<EnkryptAccount[]> {
+  getKeysArray(): Promise<YetiAccount[]> {
     return this.#keyring.getKeysArray();
   }
-  getKeysObject(): Promise<{ [key: string]: EnkryptAccount }> {
+  getKeysObject(): Promise<{ [key: string]: YetiAccount }> {
     return this.#keyring.getKeysObject();
   }
-  addHWAccount(account: HWWalletAdd): Promise<EnkryptAccount> {
+  addHWAccount(account: HWWalletAdd): Promise<YetiAccount> {
     return this.#keyring.addHWAccount(account);
   }
-  addKeyPair(account: KeyPairAdd, password: string): Promise<EnkryptAccount> {
+  addKeyPair(account: KeyPairAdd, password: string): Promise<YetiAccount> {
     return this.#keyring.addKeyPair(account, password);
   }
   isLocked(): boolean {
@@ -83,7 +83,7 @@ export class KeyRingBase {
   isInitialized(): Promise<boolean> {
     return this.#keyring.isInitialized();
   }
-  renameAccount(address: string, newName: string): Promise<EnkryptAccount> {
+  renameAccount(address: string, newName: string): Promise<YetiAccount> {
     return this.#keyring.renameAccount(address, newName);
   }
   deleteAccount(address: string): Promise<void> {

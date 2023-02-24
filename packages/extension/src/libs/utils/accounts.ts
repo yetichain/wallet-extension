@@ -1,4 +1,4 @@
-import { EnkryptAccount, NetworkNames, SignerType } from "@enkryptcom/types";
+import { YetiAccount, NetworkNames, SignerType } from "@yetiwallet/types";
 import PublicKeyRing from "../keyring/public-keyring";
 import { getNetworkByName } from "./networks";
 
@@ -12,7 +12,7 @@ const getOtherSigners = (signers: SignerType[]): SignerType[] => {
 
 export const getAccountsByNetworkName = async (
   networkName: NetworkNames
-): Promise<EnkryptAccount[]> => {
+): Promise<YetiAccount[]> => {
   const network = await getNetworkByName(networkName);
 
   if (!network) return [];

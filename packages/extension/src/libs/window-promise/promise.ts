@@ -7,10 +7,10 @@ import Browser from "webextension-polyfill";
 import { InternalMethods, InternalOnMessageResponse } from "@/types/messenger";
 import { getCustomError, getError } from "../error";
 import getUiPath from "../utils/get-ui-path";
-import UIRoutes from "@/ui/provider-pages/enkrypt/routes/names";
+import UIRoutes from "@/ui/provider-pages/yeti/routes/names";
 import { ErrorCodes } from "@/providers/ethereum/types";
 
-const UNLOCK_PATH = getUiPath(UIRoutes.unlock.path, ProviderName.enkrypt);
+const UNLOCK_PATH = getUiPath(UIRoutes.unlock.path, ProviderName.yeti);
 class WindowPromise {
   private async getRawResponse(
     url: string,
@@ -23,7 +23,7 @@ class WindowPromise {
           resolve(
             sendToNewWindowFromBackground(
               {
-                provider: ProviderName.enkrypt,
+                provider: ProviderName.yeti,
                 message: msg,
               },
               tabId
@@ -48,7 +48,7 @@ class WindowPromise {
     unlockKeyring = false
   ): Promise<InternalOnMessageResponse> {
     const windowInfo = await Browser.windows.create({
-      url: "/index.html#/enkrypt/loading",
+      url: "/index.html#/yeti/loading",
       type: "popup",
       focused: true,
       height: 600,
@@ -81,7 +81,7 @@ class WindowPromise {
     };
     const executePromise = async (): Promise<InternalOnMessageResponse> => {
       const isKeyRingLocked = await sendToBackgroundFromBackground({
-        provider: ProviderName.enkrypt,
+        provider: ProviderName.yeti,
         message: JSON.stringify({
           method: InternalMethods.isLocked,
           params: [],

@@ -8,7 +8,7 @@ import {
 } from "./types";
 import BigNumber from "bignumber.js";
 import cacheFetch from "../cache-fetch";
-import { CoingeckoPlatform } from "@enkryptcom/types";
+import { CoingeckoPlatform } from "@yetiwallet/types";
 const COINGECKO_ENDPOINT = "https://api.coingecko.com/api/v3/";
 const FIAT_EXCHANGE_RATE_ENDPOINT =
   "https://mainnet.mewwallet.dev/v2/prices/exchange-rates";

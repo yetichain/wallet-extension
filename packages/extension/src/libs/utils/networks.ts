@@ -1,5 +1,5 @@
 import { ProviderName } from "@/types/provider";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import EthereumNetworks from "@/providers/ethereum/networks";
 import PolkadotNetworks from "@/providers/polkadot/networks";
 import BitcoinNetworks from "@/providers/bitcoin/networks";
@@ -14,7 +14,7 @@ const providerNetworks: Record<ProviderName, Record<string, BaseNetwork>> = {
   [ProviderName.ethereum]: EthereumNetworks,
   [ProviderName.polkadot]: PolkadotNetworks,
   [ProviderName.bitcoin]: BitcoinNetworks,
-  [ProviderName.enkrypt]: {},
+  [ProviderName.yeti]: {},
 };
 const getAllNetworks = async (): Promise<BaseNetwork[]> => {
   const customNetworksState = new CustomNetworksState();

@@ -12,7 +12,7 @@ import { Destination, InternalOnMessageResponse } from "@/types/messenger";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
 import type { WindowPromiseType } from "@/types/ui";
 import { getCustomError } from "@/libs/error";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 
 export default (paramCount: number): Promise<WindowPromiseType> => {
   let PromResolve: (val: WindowPromiseType) => void;
@@ -38,7 +38,7 @@ export default (paramCount: number): Promise<WindowPromiseType> => {
     req: RPCRequestType
   ): Promise<InternalOnMessageResponse> => {
     return sendToBackgroundFromNewWindow({
-      provider: ProviderName.enkrypt,
+      provider: ProviderName.yeti,
       message: JSON.stringify(req),
     }).then((response) => {
       if (response.error) return response;
@@ -58,7 +58,7 @@ export default (paramCount: number): Promise<WindowPromiseType> => {
       (message): Promise<InternalOnMessageResponse> => {
         if (
           message.sender.context !== Destination.background ||
-          message.provider !== ProviderName.enkrypt
+          message.provider !== ProviderName.yeti
         ) {
           return Promise.resolve({
             error: getCustomError(

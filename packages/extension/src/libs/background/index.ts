@@ -3,12 +3,12 @@ import {
   InternalOnMessageResponse,
   Message,
 } from "@/types/messenger";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 import { getCustomError } from "../error";
 import KeyRingBase from "../keyring/keyring";
 import { sendToWindow } from "@/libs/messenger/extension";
 import { ProviderName } from "@/types/provider";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import Providers from "@/providers";
 import Browser from "webextension-polyfill";
 import TabInfo from "@/libs/utils/tab-info";
@@ -57,7 +57,7 @@ class BackgroundHandler {
     const { method, params } = JSON.parse(msg.message);
     const _provider = msg.provider;
     const _tabid = msg.sender.tabId;
-    if (_provider === ProviderName.enkrypt) {
+    if (_provider === ProviderName.yeti) {
       if (
         method === InternalMethods.newWindowInit ||
         method === InternalMethods.newWindowUnload
@@ -75,7 +75,7 @@ class BackgroundHandler {
         });
       }
       return {
-        error: JSON.stringify(getCustomError("Enkrypt: not implemented")),
+        error: JSON.stringify(getCustomError("YETI: not implemented")),
       };
     }
     const tabInfo = TabInfo(await Browser.tabs.get(_tabid));

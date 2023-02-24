@@ -1,7 +1,7 @@
 import { getCustomError } from "@/libs/error";
 import KeyRingBase from "@/libs/keyring/keyring";
 import { InternalOnMessageResponse } from "@/types/messenger";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 
 const unlock = (
   keyring: KeyRingBase,

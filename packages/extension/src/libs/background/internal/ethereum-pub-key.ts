@@ -1,7 +1,7 @@
 import { getCustomError } from "@/libs/error";
 import KeyRingBase from "@/libs/keyring/keyring";
 import { InternalOnMessageResponse } from "@/types/messenger";
-import { EnkryptAccount, RPCRequestType } from "@enkryptcom/types";
+import { YetiAccount, RPCRequestType } from "@yetiwallet/types";
 
 const getEthereumPubKey = (
   keyring: KeyRingBase,
@@ -11,7 +11,7 @@ const getEthereumPubKey = (
     return Promise.resolve({
       error: getCustomError("background: invalid params for public key"),
     });
-  const account = message.params[0] as EnkryptAccount;
+  const account = message.params[0] as YetiAccount;
   return keyring
     .getEthereumEncryptionPublicKey(account)
     .then((pubkey) => {

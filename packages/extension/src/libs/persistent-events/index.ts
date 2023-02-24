@@ -1,6 +1,6 @@
 import { Message } from "@/types/messenger";
 import { InternalStorageNamespace } from "@/types/provider";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import BrowserStorage from "../common/browser-storage";
 import { IPersistentEvent, StorageKeys } from "./types";
 class PersistentEvents {

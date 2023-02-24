@@ -1,7 +1,7 @@
 import { getCustomError } from "@/libs/error";
 import KeyRingBase from "@/libs/keyring/keyring";
 import { InternalOnMessageResponse } from "@/types/messenger";
-import { EnkryptAccount, RPCRequestType } from "@enkryptcom/types";
+import { YetiAccount, RPCRequestType } from "@yetiwallet/types";
 
 const sign = (
   keyring: KeyRingBase,
@@ -12,7 +12,7 @@ const sign = (
       error: getCustomError("background: invalid params for signing"),
     });
   const msgHash = message.params[0] as `0x${string}`;
-  const account = message.params[1] as EnkryptAccount;
+  const account = message.params[1] as YetiAccount;
   return keyring
     .sign(msgHash, account)
     .then((sig) => {

@@ -1,9 +1,9 @@
 {
-  "author": "https://www.enkrypt.com",
-  "homepage_url": "https://www.enkrypt.com",
+  "author": "https://www.yetichain.com",
+  "homepage_url": "https://www.yetichain.com",
   "version": "",
-  "name": "Enkrypt: Ethereum, Polkadot & Canto Wallet",
-  "short_name": "Enkrypt",
+  "name": "YETI: Web3.0 Wallet",
+  "short_name": "YETI",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -35,7 +35,7 @@
       "run_at": "document_start"
     }
   ],
-  "description": "Everything in the blockchain made easy",
+  "description": "Access to the Blockchain",
   "icons": {
     "16": "assets/img/icons/icon16.png",
     "32": "assets/img/icons/icon32.png",

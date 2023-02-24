@@ -1,5 +1,5 @@
 import { ErrorCodes, JSONError } from "@/providers/ethereum/types";
-import { ProviderError } from "@enkryptcom/types";
+import { ProviderError } from "@yetiwallet/types";
 import { assert } from "chai";
 const errors: Record<number, any> = {
   4001: {

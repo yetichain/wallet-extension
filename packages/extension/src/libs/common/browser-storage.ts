@@ -1,5 +1,5 @@
-import Storage from "@enkryptcom/storage";
-import { BrowserStorageArea } from "@enkryptcom/types";
+import Storage from "@yetiwallet/storage";
+import { BrowserStorageArea } from "@yetiwallet/types";
 
 class BrowserStorage extends Storage {
   constructor(namespace: string, storage?: BrowserStorageArea) {

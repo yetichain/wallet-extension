@@ -7,7 +7,7 @@ import {
   CustomErc20Token,
   TokenType,
 } from "./types";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 
 export class TokensState {
   private storage: BrowserStorage;

@@ -1,8 +1,8 @@
 import PersistentEvents from "@/libs/persistent-events";
 import Browser from "webextension-polyfill";
 import { sendToWindow } from "@/libs/messenger/extension";
-import { OnMessageResponse } from "@enkryptcom/types";
-import { EnkryptProviderEventMethods } from "@/types/provider";
+import { OnMessageResponse } from "@yetiwallet/types";
+import { YetiProviderEventMethods } from "@/types/provider";
 import type BackgroundHandler from "..";
 
 async function handlePersistentEvents(this: BackgroundHandler) {
@@ -27,7 +27,7 @@ async function handlePersistentEvents(this: BackgroundHandler) {
                 {
                   provider: persistentEvent.event.provider,
                   message: JSON.stringify({
-                    method: EnkryptProviderEventMethods.persistentEvents,
+                    method: YetiProviderEventMethods.persistentEvents,
                     params: [
                       JSON.parse(persistentEvent.event.message),
                       persistentEvent.response.result,

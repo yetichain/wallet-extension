@@ -10,26 +10,26 @@ import BitcoinProvider from "@/providers/bitcoin/inject";
 
 import { InternalMethods, InjectedIDs } from "@/types/messenger";
 setWindowNamespace();
-(window as Window).enkrypt = {
+(window as Window).yeti = {
   providers: {},
   settings: {},
 };
 const script = document.getElementById(InjectedIDs.main) as HTMLScriptElement;
 const scriptURL = new URL(script.src);
-window.enkrypt.settings = JSON.parse(scriptURL.searchParams.get("settings")!);
+window.yeti.settings = JSON.parse(scriptURL.searchParams.get("settings")!);
 
 windowOnMessage(async (msg): Promise<void> => {
-  window["enkrypt"]["providers"][msg.provider].handleMessage(msg.message);
+  window["yeti"]["providers"][msg.provider].handleMessage(msg.message);
 });
 window.addEventListener("load", () => {
   providerSendMessage(
-    ProviderName.enkrypt,
+    ProviderName.yeti,
     JSON.stringify({ method: InternalMethods.newWindowInit })
   );
 });
 window.addEventListener("beforeunload", () => {
   providerSendMessage(
-    ProviderName.enkrypt,
+    ProviderName.yeti,
     JSON.stringify({ method: InternalMethods.newWindowUnload })
   );
 });

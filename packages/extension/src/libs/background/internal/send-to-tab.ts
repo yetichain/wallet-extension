@@ -3,7 +3,7 @@ import {
   InternalOnMessageResponse,
   Message,
 } from "@/types/messenger";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 import { TabProviderType } from "../types";
 
 const sendToTab = (

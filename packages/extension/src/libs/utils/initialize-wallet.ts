@@ -2,7 +2,7 @@ import KeyRing from "@/libs/keyring/keyring";
 import EthereumNetworks from "@/providers/ethereum/networks";
 import PolkadotNetworks from "@/providers/polkadot/networks";
 import BitcoinNetworks from "@/providers/bitcoin/networks";
-import { WalletType } from "@enkryptcom/types";
+import { WalletType } from "@yetiwallet/types";
 export default async (mnemonic: string, password: string): Promise<void> => {
   const kr = new KeyRing();
   await kr.init(mnemonic, password);

@@ -1,4 +1,4 @@
-import NameResolver, { CoinType } from "@enkryptcom/name-resolution";
+import NameResolver, { CoinType } from "@yetiwallet/name-resolution";
 class GenericNameResolver {
   nameResolver: NameResolver;
 

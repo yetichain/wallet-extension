@@ -1,5 +1,5 @@
 import { Message } from "@/types/messenger";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 
 export interface IPersistentEvent {
   event: Message;

@@ -3,7 +3,7 @@ import {
   sendMessage,
   allowWindowMessaging,
   getCurrentContext,
-} from "@enkryptcom/extension-bridge";
+} from "@yetiwallet/extension-bridge";
 import { EXTENSION_NAMESPACE } from "@/configs/constants";
 import {
   Message,
@@ -15,7 +15,7 @@ import {
   InternalOnMessageResponse,
   ActionSendMessage,
 } from "@/types/messenger";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import { assert } from "chai";
 import { EventBusEmit, EventBusOn } from "./eventbus";
 

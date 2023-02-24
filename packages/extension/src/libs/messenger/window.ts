@@ -2,7 +2,7 @@ import {
   setNamespace,
   onMessage,
   sendMessage,
-} from "@enkryptcom/extension-bridge/dist/window";
+} from "@yetiwallet/extension-bridge/dist/window";
 import { EXTENSION_NAMESPACE } from "@/configs/constants";
 import {
   Message,
@@ -11,7 +11,7 @@ import {
   Destination,
   onMessageType,
 } from "@/types/messenger";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import { ProviderName } from "@/types/provider";
 import { assert } from "chai";
 

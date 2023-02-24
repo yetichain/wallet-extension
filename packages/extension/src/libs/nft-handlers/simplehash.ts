@@ -1,7 +1,7 @@
 import { NFTCollection, NFTItem } from "@/types/nft";
 import { NodeType } from "@/types/provider";
 import cacheFetch from "../cache-fetch";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import { SHNFTType, SHResponse } from "./types/simplehash";
 const SH_ENDPOINT = "https://partners.mewapi.io/nfts/";
 const CACHE_TTL = 60 * 1000;

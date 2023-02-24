@@ -1,7 +1,7 @@
 import { getCustomError } from "@/libs/error";
 import KeyRingBase from "@/libs/keyring/keyring";
 import { InternalMethods, InternalOnMessageResponse } from "@/types/messenger";
-import { KeyRecordAdd, RPCRequestType } from "@enkryptcom/types";
+import { KeyRecordAdd, RPCRequestType } from "@yetiwallet/types";
 
 const newAccount = (
   keyring: KeyRingBase,

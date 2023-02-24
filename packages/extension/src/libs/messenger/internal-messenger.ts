@@ -5,7 +5,7 @@ import {
 } from "@/libs/messenger/extension";
 import { InternalOnMessageResponse } from "@/types/messenger";
 import { ProviderName } from "@/types/provider";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 
 const sendUsingInternalMessengers = (
   req: RPCRequestType
@@ -14,12 +14,12 @@ const sendUsingInternalMessengers = (
   if (context === "popup") {
     return sendToBackgroundFromAction({
       message: JSON.stringify(req),
-      provider: ProviderName.enkrypt,
+      provider: ProviderName.yeti,
     });
   } else if (context === "new-window") {
     return sendToBackgroundFromNewWindow({
       message: JSON.stringify(req),
-      provider: ProviderName.enkrypt,
+      provider: ProviderName.yeti,
     });
   } else {
     throw new Error(`internal-messenger: unknown context ${context}`);

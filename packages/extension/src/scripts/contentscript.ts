@@ -22,12 +22,12 @@ function injectScript(settings: string) {
     container.insertBefore(scriptTag, container.children[0]);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error("Enkrypt: Provider injection failed.", error);
+    console.error("YETI: Provider injection failed.", error);
   }
 }
 sendToBackgroundFromCS({
   message: JSON.stringify({ method: InternalMethods.getSettings, params: [] }),
-  provider: ProviderName.enkrypt,
+  provider: ProviderName.yeti,
 }).then((res) => {
   if (res.result) {
     injectScript(res.result);

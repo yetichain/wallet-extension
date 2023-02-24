@@ -1,6 +1,6 @@
 import { NFTCollection, NFTItem } from "@/types/nft";
 import { NodeType } from "@/types/provider";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import cacheFetch from "../cache-fetch";
 import {
   ContentRepresentation,

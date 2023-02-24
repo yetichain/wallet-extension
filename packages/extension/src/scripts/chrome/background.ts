@@ -10,7 +10,7 @@ import {
   backgroundOnMessageFromCS,
 } from "@/libs/messenger/extension";
 import { InternalOnMessageResponse } from "@/types/messenger";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import BackgroundHandler from "@/libs/background";
 import Browser from "webextension-polyfill";
 import openOnboard from "@/libs/utils/open-onboard";

@@ -2,8 +2,8 @@ import {
   SignerType,
   Errors,
   WalletType,
-  EnkryptAccount,
-} from "@enkryptcom/types";
+  YetiAccount,
+} from "@yetiwallet/types";
 import { assert } from "chai";
 import { KeyRingBase } from "./keyring";
 class PublicKeyRing {
@@ -11,7 +11,7 @@ class PublicKeyRing {
   constructor() {
     this.#keyring = new KeyRingBase();
   }
-  private async getKeysObject(): Promise<{ [key: string]: EnkryptAccount }> {
+  private async getKeysObject(): Promise<{ [key: string]: YetiAccount }> {
     const allKeys = await this.#keyring.getKeysObject();
     if (process.env.IS_DEV) {
       allKeys["0x99999990d598b918799f38163204bbc30611b6b6"] = {
@@ -67,7 +67,7 @@ class PublicKeyRing {
     }
     return allKeys;
   }
-  async getAccounts(types?: SignerType[]): Promise<EnkryptAccount[]> {
+  async getAccounts(types?: SignerType[]): Promise<YetiAccount[]> {
     return this.getKeysObject().then((keysObject) => {
       const records = Object.values(keysObject);
       return types
@@ -75,7 +75,7 @@ class PublicKeyRing {
         : records;
     });
   }
-  async getAccount(address: string): Promise<EnkryptAccount> {
+  async getAccount(address: string): Promise<YetiAccount> {
     const allKeys = await this.getKeysObject();
     assert(allKeys[address], Errors.KeyringErrors.AddressDoesntExists);
     return allKeys[address];
