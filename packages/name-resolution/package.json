@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/name-resolution",
+  "name": "@yetiwallet/name-resolution",
   "version": "0.0.1",
-  "description": "name resolution module for enkrypt",
+  "description": "name resolution module for yeti",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

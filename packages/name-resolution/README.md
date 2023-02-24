@@ -1,2 +1,2 @@
 # name resolution
-## name resolution module for enkrypt
+## name resolution module for yeti
