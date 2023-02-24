@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { expect } from "chai";
-import { MemoryStorage, keccak256 } from "@enkryptcom/utils";
-import Storage from "@enkryptcom/storage";
-import { SignerType, WalletType } from "@enkryptcom/types";
+import { MemoryStorage, keccak256 } from "@yetiwallet/utils";
+import Storage from "@yetiwallet/storage";
+import { SignerType, WalletType } from "@yetiwallet/types";
 import { u8aWrapBytes, u8aToHex, stringToU8a } from "@polkadot/util";
 import KeyRing from "../src";
 

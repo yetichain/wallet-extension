@@ -1,4 +1,4 @@
-import { SignerType } from "@enkryptcom/types";
+import { SignerType } from "@yetiwallet/types";
 
 export const pathParser = (
   basePath: string,

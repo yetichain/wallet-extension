@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { expect } from "chai";
-import { MemoryStorage } from "@enkryptcom/utils";
-import Storage from "@enkryptcom/storage";
+import { MemoryStorage } from "@yetiwallet/utils";
+import Storage from "@yetiwallet/storage";
 import KeyRing from "../src";
 
 describe("Keyring locking tests", () => {

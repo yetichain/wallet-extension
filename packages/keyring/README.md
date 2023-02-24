@@ -1,3 +1,3 @@
-# @enkryptcom/keyring
+# @yetiwallet/keyring
 
-## Key management for enkrypt extension
+## Key management for yeti extension

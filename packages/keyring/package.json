@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/keyring",
+  "name": "@yetiwallet/keyring",
   "version": "0.0.1",
-  "description": "Key management for enkrypt extension",
+  "description": "Key management for yeti extension",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -17,13 +17,13 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "@enkryptcom/signer-bitcoin": "^0.0.1",
-    "@enkryptcom/signer-ethereum": "^0.0.1",
-    "@enkryptcom/signer-polkadot": "^0.0.1",
-    "@enkryptcom/storage": "^0.0.1",
-    "@enkryptcom/types": "^0.0.1",
-    "@enkryptcom/utils": "^0.0.1",
     "@polkadot/util": "^10.3.1",
+    "@yetiwallet/signer-bitcoin": "^0.0.1",
+    "@yetiwallet/signer-ethereum": "^0.0.1",
+    "@yetiwallet/signer-polkadot": "^0.0.1",
+    "@yetiwallet/storage": "^0.0.1",
+    "@yetiwallet/types": "^0.0.1",
+    "@yetiwallet/utils": "^0.0.1",
     "assert": "^2.0.0",
     "bip39": "^3.0.4"
   },
@@ -51,9 +51,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/keyring"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/keyring"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }
