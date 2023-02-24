@@ -1,5 +1,5 @@
-import { EthEncryptedData } from "@enkryptcom/types";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { EthEncryptedData } from "@yetiwallet/types";
+import { hexToBuffer } from "@yetiwallet/utils";
 import { decodeBase64, encodeUTF8 } from "tweetnacl-util";
 import { box as naclBox } from "tweetnacl";
 

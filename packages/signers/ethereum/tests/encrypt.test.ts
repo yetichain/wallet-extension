@@ -1,4 +1,4 @@
-import { bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+import { bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import { expect } from "chai";
 import { privateToPublic } from "ethereumjs-util";
 import Signer from "../src";

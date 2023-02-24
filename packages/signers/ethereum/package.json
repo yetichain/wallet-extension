@@ -1,5 +1,5 @@
 {
-  "name": "@enkryptcom/signer-ethereum",
+  "name": "@yetiwallet/signer-ethereum",
   "version": "0.0.1",
   "description": "Ethereum blockchain signer",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "@enkryptcom/utils": "^0.0.1",
+    "@yetiwallet/utils": "^0.0.1",
     "bip39": "^3.0.4",
     "chai": "^4.3.7",
     "ethereum-cryptography": "^1.2.0",
@@ -27,13 +27,13 @@
     "tweetnacl-util": "^0.15.1"
   },
   "devDependencies": {
-    "@enkryptcom/types": "^0.0.1",
     "@types/chai": "^4.3.4",
     "@types/hdkey": "^2.0.1",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
+    "@yetiwallet/types": "^0.0.1",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
@@ -51,9 +51,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/signers/ethereum"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/signers/ethereum"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }

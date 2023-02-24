@@ -7,8 +7,8 @@ import {
   privateToAddress,
 } from "ethereumjs-util";
 import { mnemonicToSeed } from "bip39";
-import { Errors, SignerInterface, KeyPair } from "@enkryptcom/types";
-import { hexToBuffer, bufferToHex } from "@enkryptcom/utils";
+import { Errors, SignerInterface, KeyPair } from "@yetiwallet/types";
+import { hexToBuffer, bufferToHex } from "@yetiwallet/utils";
 import HDkey from "hdkey";
 import { box as naclBox } from "tweetnacl";
 import { encodeBase64 } from "tweetnacl-util";
