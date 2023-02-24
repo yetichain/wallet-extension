@@ -1,4 +1,4 @@
-<br />
+
 ![2](https://user-images.githubusercontent.com/118218938/221086651-0be7f6b9-5dd8-4369-b6be-4f7cd877bbda.png)
 
   <h3 align="center">YETI</h3>
