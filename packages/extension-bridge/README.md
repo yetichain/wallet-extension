@@ -1,4 +1,4 @@
-# @enkryptcom/extension-bridge
+# @yetiwallet/extension-bridge
 
 Messaging in WebExtension made super easy. Out of the box.
 
@@ -7,10 +7,10 @@ Messaging in WebExtension made super easy. Out of the box.
 
 > Forked from [crx-bridge](https://github.com/NeekSandhu/crx-bridge) by [NeekSandhu](https://github.com/NeekSandhu)
 
-##### Changes in @enkryptcom/extension-bridge Fork
+##### Changes in @yetiwallet/extension-bridge Fork
 
 - Typescript formating
-- Changes necessary for enKrypt extension
+- Changes necessary for yeti extension
 
 ##### Changes in this Fork
 

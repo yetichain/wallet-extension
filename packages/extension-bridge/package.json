@@ -1,5 +1,5 @@
 {
-  "name": "@enkryptcom/extension-bridge",
+  "name": "@yetiwallet/extension-bridge",
   "version": "0.0.1",
   "description": "Messaging in Web Extensions made easy. Out of the box.",
   "keywords": [
@@ -18,9 +18,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/extension-bridge"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/extension-bridge"
   },
-  "author": "Neek Sandhu <neek.sandhu@outlook.com>",
+  "author": "Yeti Chain <info@yetichain.com>",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
