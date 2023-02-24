@@ -1,5 +1,5 @@
 import EventEmitter from "eventemitter3";
-import { MiddlewareFunction, RPCRequestType } from "@enkryptcom/types";
+import { MiddlewareFunction, RPCRequestType } from "@yetiwallet/types";
 import { RequestClass } from "../types";
 import MiddleWare from "./middleware";
 

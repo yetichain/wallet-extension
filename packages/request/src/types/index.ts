@@ -1,5 +1,5 @@
 import EventEmitter from "eventemitter3";
-import { RPCRequestType, MiddlewareFunction } from "@enkryptcom/types";
+import { RPCRequestType, MiddlewareFunction } from "@yetiwallet/types";
 
 export interface WSQueueType {
   [key: string]: {

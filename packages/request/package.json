@@ -1,7 +1,7 @@
 {
-  "name": "@enkryptcom/request",
+  "name": "@yetiwallet/request",
   "version": "0.0.1",
-  "description": "Network requests class for enkrypt extension",
+  "description": "Network requests class for yeti extension",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -16,7 +16,7 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "@enkryptcom/types": "^0.0.1",
+    "@yetiwallet/types": "^0.0.1",
     "eventemitter3": "^5.0.0",
     "isomorphic-ws": "^5.0.0",
     "json-rpc-2.0": "^1.4.2",
@@ -49,9 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkryptcom/enKrypt/tree/main/packages/request"
+    "url": "git+https://github.com/yetichain/wallet-extension/tree/main/packages/request"
   },
   "keywords": [],
-  "author": "kvhnuke",
+  "author": "Yeti Chain",
   "license": "MIT"
 }

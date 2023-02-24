@@ -1,4 +1,4 @@
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import { RequestClass } from "./types";
 import WSClient from "./libs/wsClient";
 import RPCClient from "./libs/rpcClient";

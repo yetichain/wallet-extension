@@ -2,7 +2,7 @@ import {
   MiddlewareFunction,
   RPCRequestType,
   CallbackFunction,
-} from "@enkryptcom/types";
+} from "@yetiwallet/types";
 
 class Middleware {
   middlewares: MiddlewareFunction[];

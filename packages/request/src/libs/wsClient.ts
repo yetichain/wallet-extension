@@ -2,7 +2,7 @@ import { JSONRPCClient } from "json-rpc-2.0";
 import EventEmitter from "eventemitter3";
 import { v4 as uuidv4 } from "uuid";
 import IsomorphicWS from "isomorphic-ws";
-import { MiddlewareFunction, RPCRequestType } from "@enkryptcom/types";
+import { MiddlewareFunction, RPCRequestType } from "@yetiwallet/types";
 import WebSocket from "./reconnectingWS";
 import MiddleWare from "./middleware";
 import { RequestClass, WSQueueType, WSOptions } from "../types";

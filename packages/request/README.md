@@ -1,3 +1,3 @@
-# @enkryptcom/request
+# @yetiwallet/request
 
-## Network requests class for enkrypt extension
+## Network requests class for yeti extension

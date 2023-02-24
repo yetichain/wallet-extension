@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import Request from "../src";
 
 describe("Request calls test", () => {
