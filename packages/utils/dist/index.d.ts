@@ -15,7 +15,11 @@ declare class MemoryStorage implements BrowserStorageArea {
     getWholeStorage(): Promise<Record<string, any>>;
 }
 
+declare const fromBase: (weiInput: string, decimals: number, optionsInput?: any) => string;
+declare const toBase: (etherInput: string, decimals: number) => string;
+declare const isValidDecimals: (amount: string, decimals: number) => boolean;
+
 declare const bufferToHex: (buf: Buffer | Uint8Array, nozerox?: boolean) => string;
 declare const hexToBuffer: (hex: string) => Buffer;
 
-export { MemoryStorage, bufferToHex, decrypt, encrypt, hexToBuffer };
+export { MemoryStorage, bufferToHex, decrypt, encrypt, fromBase, hexToBuffer, isValidDecimals, toBase };

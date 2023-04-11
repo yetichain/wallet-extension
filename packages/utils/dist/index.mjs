@@ -125,6 +125,110 @@ var MemoryStorage = class {
 };
 var memory_storage_default = MemoryStorage;
 
+// src/units.ts
+import { toBN } from "web3-utils";
+var zero = toBN(0);
+var negative1 = toBN(-1);
+var getValueOfUnit = (decimals) => toBN(10).pow(toBN(decimals));
+var numberToString = (arg) => {
+  if (typeof arg === "string") {
+    if (!arg.match(/^-?[0-9.]+$/)) {
+      throw new Error(
+        `while converting number to string, invalid number value '${arg}', should be a number matching (^-?[0-9.]+).`
+      );
+    }
+    return arg;
+  }
+  if (typeof arg === "number") {
+    return String(arg);
+  }
+  if (typeof arg === "object" && arg.toString && (arg.toTwos || arg.dividedToIntegerBy)) {
+    if (arg.toPrecision) {
+      return String(arg.toPrecision());
+    }
+    return arg.toString(10);
+  }
+  throw new Error(
+    `while converting number to string, invalid number value '${arg}' type ${typeof arg}.`
+  );
+};
+var fromBase = (weiInput, decimals, optionsInput) => {
+  let wei = toBN(weiInput);
+  const negative = wei.lt(zero);
+  const base = getValueOfUnit(decimals);
+  const baseLength = base.toString().length - 1 || 1;
+  const options = optionsInput || {};
+  if (negative) {
+    wei = wei.mul(negative1);
+  }
+  let fraction = wei.mod(base).toString(10);
+  while (fraction.length < baseLength) {
+    fraction = `0${fraction}`;
+  }
+  if (!options.pad) {
+    fraction = fraction.match(/^([0-9]*[1-9]|0)(0*)/)[1];
+  }
+  let whole = wei.div(base).toString(10);
+  if (options.commify) {
+    whole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  let value = `${whole}${fraction === "0" ? "" : `.${fraction}`}`;
+  if (negative) {
+    value = `-${value}`;
+  }
+  return value;
+};
+var toBase = (etherInput, decimals) => {
+  let ether = numberToString(etherInput);
+  const base = getValueOfUnit(decimals);
+  const baseLength = base.toString().length - 1 || 1;
+  const negative = ether.substring(0, 1) === "-";
+  if (negative) {
+    ether = ether.substring(1);
+  }
+  if (ether === ".") {
+    throw new Error(
+      `[ethjs-unit] while converting number ${etherInput} to wei, invalid value`
+    );
+  }
+  const comps = ether.split(".");
+  if (comps.length > 2) {
+    throw new Error(
+      `[ethjs-unit] while converting number ${etherInput} to wei,  too many decimal points`
+    );
+  }
+  let whole = comps[0];
+  let fraction = comps[1];
+  if (!whole) {
+    whole = "0";
+  }
+  if (!fraction) {
+    fraction = "0";
+  }
+  if (fraction.length > baseLength) {
+    throw new Error(
+      `[ethjs-unit] while converting number ${etherInput} to wei, too many decimal places`
+    );
+  }
+  while (fraction.length < baseLength) {
+    fraction += "0";
+  }
+  whole = toBN(whole);
+  fraction = toBN(fraction);
+  let wei = whole.mul(base).add(fraction);
+  if (negative) {
+    wei = wei.mul(negative1);
+  }
+  return wei.toString();
+};
+var isValidDecimals = (amount, decimals) => {
+  const numDecimals = amount.split(".")[1]?.length;
+  if (numDecimals && numDecimals > decimals) {
+    return false;
+  }
+  return true;
+};
+
 // src/index.ts
 var bufferToHex = (buf, nozerox = false) => nozerox ? Buffer.from(buf).toString("hex") : `0x${Buffer.from(buf).toString("hex")}`;
 var hexToBuffer = (hex) => Buffer.from(
@@ -139,11 +243,14 @@ export {
   bytesToHex,
   decrypt,
   encrypt,
+  fromBase,
   hexToBuffer,
   hexToBytes,
+  isValidDecimals,
   keccak2562 as keccak256,
   numberToHex,
   polkadotEncodeAddress,
   stripHexPrefix,
+  toBase,
   utf8ToHex
 };

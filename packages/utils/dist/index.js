@@ -74,6 +74,10 @@ function _objectSpread(target) {
     }
     return target;
 }
+var _typeof = function(obj) {
+    "@swc/helpers - typeof";
+    return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj;
+};
 var __generator = this && this.__generator || function(thisArg, body) {
     var f, y, t, g, _ = {
         label: 0,
@@ -231,7 +235,7 @@ __export(src_exports, {
         return bufferToHex;
     },
     bytesToHex: function() {
-        return import_web3_utils2.bytesToHex;
+        return import_web3_utils3.bytesToHex;
     },
     decrypt: function() {
         return decrypt;
@@ -239,30 +243,39 @@ __export(src_exports, {
     encrypt: function() {
         return encrypt;
     },
+    fromBase: function() {
+        return fromBase;
+    },
     hexToBuffer: function() {
         return hexToBuffer;
     },
     hexToBytes: function() {
-        return import_web3_utils2.hexToBytes;
+        return import_web3_utils3.hexToBytes;
+    },
+    isValidDecimals: function() {
+        return isValidDecimals;
     },
     keccak256: function() {
-        return import_web3_utils2.keccak256;
+        return import_web3_utils3.keccak256;
     },
     numberToHex: function() {
-        return import_web3_utils2.numberToHex;
+        return import_web3_utils3.numberToHex;
     },
     polkadotEncodeAddress: function() {
         return import_util_crypto.encodeAddress;
     },
     stripHexPrefix: function() {
-        return import_web3_utils2.stripHexPrefix;
+        return import_web3_utils3.stripHexPrefix;
+    },
+    toBase: function() {
+        return toBase;
     },
     utf8ToHex: function() {
-        return import_web3_utils2.utf8ToHex;
+        return import_web3_utils3.utf8ToHex;
     }
 });
 module.exports = __toCommonJS(src_exports);
-var import_web3_utils2 = require("web3-utils");
+var import_web3_utils3 = require("web3-utils");
 var import_util = require("@ethereumjs/util");
 var import_util_crypto = require("@polkadot/util-crypto");
 // src/encrypt.ts
@@ -443,13 +456,109 @@ var MemoryStorage = /*#__PURE__*/ function() {
     return MemoryStorage;
 }();
 var memory_storage_default = MemoryStorage;
+// src/units.ts
+var import_web3_utils2 = require("web3-utils");
+var zero = (0, import_web3_utils2.toBN)(0);
+var negative1 = (0, import_web3_utils2.toBN)(-1);
+var getValueOfUnit = function(decimals) {
+    return (0, import_web3_utils2.toBN)(10).pow((0, import_web3_utils2.toBN)(decimals));
+};
+var numberToString = function(arg) {
+    if (typeof arg === "string") {
+        if (!arg.match(/^-?[0-9.]+$/)) {
+            throw new Error("while converting number to string, invalid number value '".concat(arg, "', should be a number matching (^-?[0-9.]+)."));
+        }
+        return arg;
+    }
+    if (typeof arg === "number") {
+        return String(arg);
+    }
+    if (typeof arg === "object" && arg.toString && (arg.toTwos || arg.dividedToIntegerBy)) {
+        if (arg.toPrecision) {
+            return String(arg.toPrecision());
+        }
+        return arg.toString(10);
+    }
+    throw new Error("while converting number to string, invalid number value '".concat(arg, "' type ").concat(typeof arg === "undefined" ? "undefined" : _typeof(arg), "."));
+};
+var fromBase = function(weiInput, decimals, optionsInput) {
+    var wei = (0, import_web3_utils2.toBN)(weiInput);
+    var negative = wei.lt(zero);
+    var base = getValueOfUnit(decimals);
+    var baseLength = base.toString().length - 1 || 1;
+    var options = optionsInput || {};
+    if (negative) {
+        wei = wei.mul(negative1);
+    }
+    var fraction = wei.mod(base).toString(10);
+    while(fraction.length < baseLength){
+        fraction = "0".concat(fraction);
+    }
+    if (!options.pad) {
+        fraction = fraction.match(/^([0-9]*[1-9]|0)(0*)/)[1];
+    }
+    var whole = wei.div(base).toString(10);
+    if (options.commify) {
+        whole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    var value = "".concat(whole).concat(fraction === "0" ? "" : ".".concat(fraction));
+    if (negative) {
+        value = "-".concat(value);
+    }
+    return value;
+};
+var toBase = function(etherInput, decimals) {
+    var ether = numberToString(etherInput);
+    var base = getValueOfUnit(decimals);
+    var baseLength = base.toString().length - 1 || 1;
+    var negative = ether.substring(0, 1) === "-";
+    if (negative) {
+        ether = ether.substring(1);
+    }
+    if (ether === ".") {
+        throw new Error("[ethjs-unit] while converting number ".concat(etherInput, " to wei, invalid value"));
+    }
+    var comps = ether.split(".");
+    if (comps.length > 2) {
+        throw new Error("[ethjs-unit] while converting number ".concat(etherInput, " to wei,  too many decimal points"));
+    }
+    var whole = comps[0];
+    var fraction = comps[1];
+    if (!whole) {
+        whole = "0";
+    }
+    if (!fraction) {
+        fraction = "0";
+    }
+    if (fraction.length > baseLength) {
+        throw new Error("[ethjs-unit] while converting number ".concat(etherInput, " to wei, too many decimal places"));
+    }
+    while(fraction.length < baseLength){
+        fraction += "0";
+    }
+    whole = (0, import_web3_utils2.toBN)(whole);
+    fraction = (0, import_web3_utils2.toBN)(fraction);
+    var wei = whole.mul(base).add(fraction);
+    if (negative) {
+        wei = wei.mul(negative1);
+    }
+    return wei.toString();
+};
+var isValidDecimals = function(amount, decimals) {
+    var _amount_split_;
+    var numDecimals = (_amount_split_ = amount.split(".")[1]) === null || _amount_split_ === void 0 ? void 0 : _amount_split_.length;
+    if (numDecimals && numDecimals > decimals) {
+        return false;
+    }
+    return true;
+};
 // src/index.ts
 var bufferToHex = function(buf) {
     var nozerox = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : false;
     return nozerox ? Buffer.from(buf).toString("hex") : "0x".concat(Buffer.from(buf).toString("hex"));
 };
 var hexToBuffer = function(hex) {
-    return Buffer.from((0, import_web3_utils2.stripHexPrefix)(hex).length % 2 === 1 ? "0".concat((0, import_web3_utils2.stripHexPrefix)(hex)) : (0, import_web3_utils2.stripHexPrefix)(hex), "hex");
+    return Buffer.from((0, import_web3_utils3.stripHexPrefix)(hex).length % 2 === 1 ? "0".concat((0, import_web3_utils3.stripHexPrefix)(hex)) : (0, import_web3_utils3.stripHexPrefix)(hex), "hex");
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
@@ -460,11 +569,14 @@ var hexToBuffer = function(hex) {
     bytesToHex: bytesToHex,
     decrypt: decrypt,
     encrypt: encrypt,
+    fromBase: fromBase,
     hexToBuffer: hexToBuffer,
     hexToBytes: hexToBytes,
+    isValidDecimals: isValidDecimals,
     keccak256: keccak256,
     numberToHex: numberToHex,
     polkadotEncodeAddress: polkadotEncodeAddress,
     stripHexPrefix: stripHexPrefix,
+    toBase: toBase,
     utf8ToHex: utf8ToHex
 });
