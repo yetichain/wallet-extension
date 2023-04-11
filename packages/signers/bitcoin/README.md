@@ -1,3 +1,3 @@
-# @yetiwallet/signer-ethereum
+# @yetiwallet/signer-bitcoin
 
-## Ethereum blockchain signer
+## Bitcoin blockchain signer
