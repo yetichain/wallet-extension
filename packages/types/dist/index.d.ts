@@ -2,6 +2,7 @@ declare enum NetworkNames {
     Ethereum = "ETH",
     Okc = "OKT",
     Binance = "BNB",
+    Bitindi = "BNI",
     EthereumClassic = "ETC",
     Goerli = "GOERLI",
     Kovan = "KOV",
@@ -30,7 +31,26 @@ declare enum NetworkNames {
     Edgeware = "EDG",
     EdgeEVM = "evmEDG",
     ZkSyncGoerli = "zkSyncGoerli",
-    ZkSync = "zkSync"
+    TomoChain = "TOMO",
+    ZkSync = "zkSync",
+    SkaleEuropa = "skaleEUROPA",
+    SkaleBlockBrawlers = "skaleBRAWL",
+    SkaleCalypso = "skaleCALYPSO",
+    SkaleCryptoBlades = "skaleCRYPTOBLADES",
+    SkaleCryptoColosseum = "skaleROME",
+    SkaleExorde = "skaleEXORDE",
+    SkaleNebula = "skaleNEBULA",
+    SkaleRazor = "skaleRAZOR",
+    SkaleTitan = "skaleTITAN",
+    SkaleChaos = "skaleCHAOS",
+    OntologyEVM = "ontologyEVM",
+    Arbitrum = "ARB",
+    Gnosis = "GNO",
+    Avalanche = "AVAX",
+    Fantom = "FTM",
+    Klaytn = "KLAY",
+    Aurora = "AURORA",
+    PuppyNet = "puppyNet"
 }
 declare enum CoingeckoPlatform {
     Ethereum = "ethereum",
@@ -45,14 +65,23 @@ declare enum CoingeckoPlatform {
     Kusama = "kusama",
     Polkadot = "polkadot",
     Rootstock = "rootstock",
-    Okc = "okc",
+    Okc = "okex-chain",
     Astar = "astar",
     Shiden = "shiden network",
     Optimism = "optimistic-ethereum",
     Canto = "canto",
-    Bifrost = "Bifrost Native Coin",
+    Bifrost = "bifrost-native-coin",
     Edgeware = "edgeware",
-    EdgeEVM = "edgeware"
+    EdgeEVM = "edgeware",
+    TomoChain = "tomochain",
+    SKALE = "skale",
+    OntologyEVM = "ontology",
+    Arbitrum = "arbitrum-one",
+    Gnosis = "xdai",
+    Avalanche = "avalanche",
+    Fantom = "avalanche",
+    Klaytn = "klay-token",
+    Aurora = "aurora"
 }
 
 declare enum WalletType {
@@ -111,7 +140,7 @@ interface HWwalletOptions {
     networkName: NetworkNames;
     pathTemplate: string;
 }
-interface EnkryptAccount extends KeyRecord {
+interface YetiAccount extends KeyRecord {
     isHardware: boolean;
     HWOptions?: HWwalletOptions;
 }
@@ -184,4 +213,4 @@ interface EthEncryptedData {
     ciphertext: string;
 }
 
-export { BrowserStorageArea, CallbackFunction, CoingeckoPlatform, EncryptedData, EnkryptAccount, Errors, EthEncryptedData, HWWalletAdd, HWwalletCapabilities, HWwalletType, KeyPair, KeyPairAdd, KeyRecord, KeyRecordAdd, MiddlewareFunction, NetworkNames, OnMessageResponse, ProviderError, RPCRequestType, RPCResponseType, SignOptions, SignerInterface, SignerType, WalletType };
+export { BrowserStorageArea, CallbackFunction, CoingeckoPlatform, EncryptedData, Errors, EthEncryptedData, HWWalletAdd, HWwalletCapabilities, HWwalletType, KeyPair, KeyPairAdd, KeyRecord, KeyRecordAdd, MiddlewareFunction, NetworkNames, OnMessageResponse, ProviderError, RPCRequestType, RPCResponseType, SignOptions, SignerInterface, SignerType, WalletType, YetiAccount };
