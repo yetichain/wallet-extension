@@ -30,6 +30,7 @@ Yeti is a web3 wallet built from the ground up to support the multi-chain future
 * Ethereum
 * Polygon
 * BNB Smart Chain
+* Bitindi Chain
 * Moonbeam
 * Moonriver
 * Karura EVM+
@@ -39,7 +40,10 @@ Yeti is a web3 wallet built from the ground up to support the multi-chain future
 * Edgeware
 * Acala
 * Karura
-* More coming soon!
+* TomoChain
+* ZKSynk
+* ZKSynk
+More coming soon!
 
 Looking to add your project? [Contact us!](https://docs.google.com/forms/d/e/1FAIpQLSd1XWl6xbEdGs9bygmGrpOcsCYr3yaTL9MimZFHmLvOYFzg_w/viewform)
 
