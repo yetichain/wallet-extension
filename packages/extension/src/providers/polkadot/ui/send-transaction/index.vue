@@ -113,7 +113,7 @@ import { GasFeeInfo } from "@/providers/ethereum/ui/types";
 import { SubstrateNetwork } from "../../types/substrate-network";
 import { toBN } from "web3-utils";
 import { formatFloatingPointValue } from "@/libs/utils/number-formatter";
-import { fromBase, toBase, isValidDecimals } from "@/libs/utils/units";
+import { fromBase, toBase, isValidDecimals } from "@yetiwallet/utils";
 import BigNumber from "bignumber.js";
 import { VerifyTransactionParams } from "../types";
 import { routes as RouterNames } from "@/ui/action/router";
@@ -124,7 +124,7 @@ import Browser from "webextension-polyfill";
 import getUiPath from "@/libs/utils/get-ui-path";
 import { ProviderName } from "@/types/provider";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 import { GenericNameResolver, CoinType } from "@/libs/name-resolver";
 
 const props = defineProps({

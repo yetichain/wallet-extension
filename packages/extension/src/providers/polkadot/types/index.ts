@@ -3,10 +3,10 @@ import type Accounts from "../libs/accounts";
 import type Metadata from "../libs/metadata";
 import type Provider from "../libs/provider";
 import type Signer from "../libs/signer";
-import type { RPCRequestType } from "@enkryptcom/types";
+import type { RPCRequestType } from "@yetiwallet/types";
 import type { Injected } from "@polkadot/extension-inject/types";
 import type { Provider as InjectedProvider } from "../inject";
-import { SignerType } from "@enkryptcom/types";
+import { SignerType } from "@yetiwallet/types";
 
 export interface SubstrateInjectOptions {
   dappName: string;

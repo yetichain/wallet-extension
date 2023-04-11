@@ -3,11 +3,10 @@ import SubstrateAPI from "@/providers/polkadot/libs/api";
 import { AssetsType } from "@/types/provider";
 import { BaseToken } from "@/types/base-token";
 import { ProviderName } from "@/types/provider";
-import { CoingeckoPlatform, NetworkNames, SignerType } from "@enkryptcom/types";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { CoingeckoPlatform, NetworkNames, SignerType } from "@yetiwallet/types";
+import { polkadotEncodeAddress, fromBase } from "@yetiwallet/utils";
 import createIcon from "../libs/blockies";
 import MarketData from "@/libs/market-data";
-import { fromBase } from "@/libs/utils/units";
 import BigNumber from "bignumber.js";
 import {
   formatFiatValue,
@@ -170,7 +169,7 @@ export class SubstrateNetwork extends BaseNetwork {
         priceChangePercentage:
           market[idx]?.price_change_percentage_7d_in_currency || 0,
         sparkline: market[idx]
-          ? new Sparkline(market[idx]?.sparkline_in_7d.price, 25).dataUri
+          ? new Sparkline(market[idx]?.sparkline_in_7d.price, 25).dataValues
           : "",
         value: market[idx]?.current_price.toString() || "0",
         valuef: formatFloatingPointValue(

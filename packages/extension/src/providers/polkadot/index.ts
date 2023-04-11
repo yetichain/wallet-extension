@@ -1,5 +1,5 @@
-import getRequestProvider, { RequestClass } from "@enkryptcom/request";
-import { MiddlewareFunction, OnMessageResponse } from "@enkryptcom/types";
+import getRequestProvider, { RequestClass } from "@yetiwallet/request";
+import { MiddlewareFunction, OnMessageResponse } from "@yetiwallet/types";
 import Middlewares from "./methods";
 import EventEmitter from "eventemitter3";
 import {

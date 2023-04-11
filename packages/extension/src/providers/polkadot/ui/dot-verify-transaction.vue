@@ -126,7 +126,7 @@ import SignLogo from "@action/icons/common/sign-logo.vue";
 import CommonPopup from "@action/views/common-popup/index.vue";
 import RightChevron from "@action/icons/common/right-chevron.vue";
 import BaseButton from "@action/components/base-button/index.vue";
-import BestOfferError from "@action/views/swap-best-offer/components/swap-best-offer-block/components/best-offer-error.vue";
+import BestOfferError from "@action/views/swap/views/swap-best-offer/components/swap-best-offer-block/components/best-offer-error.vue";
 import HardwareWalletMsg from "@/providers/common/ui/verify-transaction/hardware-wallet-msg.vue";
 import { getError } from "@/libs/error";
 import { ErrorCodes } from "@/providers/ethereum/types";
@@ -138,13 +138,13 @@ import { CallData } from "./types";
 import { SubstrateNetwork } from "../types/substrate-network";
 import { BaseNetwork } from "@/types/base-network";
 import BlindVerifyView from "./custom-views/blind-approvetx.vue";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 import { getViewAndProps } from "./custom-views";
 import SubstrateAPI from "../libs/api";
 import BigNumber from "bignumber.js";
 import { FrameSystemAccountInfo } from "@acala-network/types/interfaces/types-lookup";
 import { ProviderRequestOptions } from "@/types/provider";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { TransactionSigner } from "./libs/signer";
 import { Activity, ActivityStatus, ActivityType } from "@/types/activity";
 import { ApiPromise } from "@polkadot/api";
@@ -161,7 +161,7 @@ const callData = ref<CallData>();
 const network = ref<BaseNetwork | undefined>();
 const networkIsUnknown = ref(false);
 const txView = shallowRef<any>(BlindVerifyView);
-const account = ref<EnkryptAccount>();
+const account = ref<YetiAccount>();
 const txFee = ref<BigNumber>();
 const userBalance = ref<{ balance: BigNumber; symbol: string }>();
 const insufficientBalance = ref(false);
@@ -185,7 +185,7 @@ onBeforeMount(async () => {
   Options.value = options;
 
   const reqPayload = Request.value.params![0] as SignerPayloadJSON;
-  const reqAccount = Request.value.params![1] as EnkryptAccount;
+  const reqAccount = Request.value.params![1] as YetiAccount;
   const targetNetwork = (await getAllNetworks()).find(
     (network) =>
       (network as SubstrateNetwork).genesisHash === reqPayload.genesisHash
@@ -215,7 +215,7 @@ onBeforeMount(async () => {
   isProcessing.value = false;
 });
 
-const setAccount = async (reqAccount: EnkryptAccount) => {
+const setAccount = async (reqAccount: YetiAccount) => {
   if (network.value) {
     reqAccount.address = polkadotEncodeAddress(
       reqAccount.address,

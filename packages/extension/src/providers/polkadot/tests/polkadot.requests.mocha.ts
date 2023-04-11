@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import { ProviderName, ProviderType, PolkadotProvider } from "@/types/provider";
 import PolkadotInject from "../inject";
-import { OnMessageResponse, RPCRequestType } from "@enkryptcom/types";
-import { EnkryptWindow } from "@/types/globals";
+import { OnMessageResponse, RPCRequestType } from "@yetiwallet/types";
+import { YetiWindow } from "@/types/globals";
 
 const sampleAccount = [
   {
@@ -45,8 +45,8 @@ const options = {
   type: ProviderType.substrate,
   sendMessageHandler: providerSendMessage,
 };
-const tempWindow: EnkryptWindow = {
-  enkrypt: {
+const tempWindow: YetiWindow = {
+  yeti: {
     providers: {},
     settings: {
       evm: {
@@ -64,7 +64,7 @@ const tempWindow: EnkryptWindow = {
 describe("Test Polkadot reponses", () => {
   it("should send proper responses", async () => {
     PolkadotInject(tempWindow, options);
-    const provider = tempWindow["injectedWeb3"]["enkrypt"] as PolkadotProvider;
+    const provider = tempWindow["injectedWeb3"]["yeti"] as PolkadotProvider;
     const injectedProvider = await provider.enable("dapp");
     expect(
       await injectedProvider.sendMessageHandler(5, { method: "dot_testMethod" })

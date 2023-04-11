@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { BaseNetwork } from "@/types/base-network";
 import { replaceWithEllipsis } from "@/ui/action/utils/filters";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 import { computed, PropType, ref } from "vue";
 
 const emit = defineEmits<{

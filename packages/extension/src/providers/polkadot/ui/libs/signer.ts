@@ -1,6 +1,6 @@
 import { InternalMethods, InternalOnMessageResponse } from "@/types/messenger";
-import { HWwalletType } from "@enkryptcom/types";
-import HWwallet from "@enkryptcom/hw-wallets";
+import { HWwalletType } from "@yetiwallet/types";
+import HWwallet from "@yetiwallet/hw-wallets";
 import { SignerMessageOptions, SignerTransactionOptions } from "../types";
 import { getCustomError } from "@/libs/error";
 import { payloadSignTransform, signPayload } from "../../libs/signing-utils";

@@ -9,7 +9,7 @@
     </template>
 
     <template #content>
-      <h2>Connect with Enkrypt</h2>
+      <h2>Connect with Yeti</h2>
 
       <div class="common-popup__block no-inset">
         <div class="common-popup__account">

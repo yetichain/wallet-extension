@@ -82,7 +82,7 @@ import CustomScrollbar from "@action/components/custom-scrollbar/index.vue";
 import BaseButton from "@action/components/base-button/index.vue";
 import scrollSettings from "@/libs/utils/scroll-settings";
 import { onUpdated, ref } from "vue";
-import { EnkryptAccount, KeyRecord } from "@enkryptcom/types";
+import { YetiAccount, KeyRecord } from "@yetiwallet/types";
 import PasteIcon from "@action/icons/actions/paste.vue";
 import ArrowBack from "@action/icons/common/arrow-back.vue";
 import { BaseNetwork } from "@/types/base-network";
@@ -93,7 +93,7 @@ const emit = defineEmits<{
 
 interface IProps {
   showAccounts: boolean;
-  accounts: EnkryptAccount[];
+  accounts: YetiAccount[];
   address: string;
   network: BaseNetwork;
 }

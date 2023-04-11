@@ -4,7 +4,7 @@ import { SubstrateNetwork } from "@/providers/polkadot/types/substrate-network";
 import { AcalaOrmlAsset } from "@/providers/polkadot/networks/acala/types/acala-orml-asset";
 import { MethodMap, TransferProps } from "../types";
 import { SubstrateNativeToken } from "@/providers/polkadot/types/substrate-native-token";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 
 const transferCurrency = (
   network: SubstrateNetwork,

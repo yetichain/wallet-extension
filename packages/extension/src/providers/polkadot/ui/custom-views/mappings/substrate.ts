@@ -1,6 +1,6 @@
 import { SubstrateNativeToken } from "../../../types/substrate-native-token";
 import { SubstrateNetwork } from "../../../types/substrate-network";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 
 export const nativeTransfer = (network: SubstrateNetwork, data: any) => {
   const to = polkadotEncodeAddress(data.dest["Id"], network.prefix);

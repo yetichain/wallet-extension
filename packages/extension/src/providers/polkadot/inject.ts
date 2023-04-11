@@ -12,9 +12,9 @@ import { SubstrateInjectedProvider } from "./types";
 import MessageRouter from "./libs/message-router";
 import { EXTENSION_VERSION } from "@/configs/constants";
 import { InjectedSendMessageHandler } from "./types";
-import { OnMessageResponse, RPCRequestType } from "@enkryptcom/types";
+import { OnMessageResponse, RPCRequestType } from "@yetiwallet/types";
 import { SettingsType } from "@/libs/settings-state/types";
-import { EnkryptWindow } from "@/types/globals";
+import { YetiWindow } from "@/types/globals";
 let sendMessageHandler: InjectedSendMessageHandler;
 const messagerRouter = new MessageRouter();
 export class Provider
@@ -85,16 +85,16 @@ const ProxyHandler = {
 };
 
 const injectDocument = (
-  document: EnkryptWindow | Window,
+  document: YetiWindow | Window,
   options: ProviderOptions
 ): void => {
   const provider = new Provider(options);
   document.injectedWeb3 = document.injectedWeb3 || {};
-  document.injectedWeb3["enkrypt"] = new Proxy(provider, ProxyHandler);
-  const globalSettings: SettingsType = document.enkrypt.settings;
+  document.injectedWeb3["yeti"] = new Proxy(provider, ProxyHandler);
+  const globalSettings: SettingsType = document.yetit.settings;
   if (globalSettings.substrate.injectPolkadotjs)
     document.injectedWeb3["polkadot-js"] = new Proxy(provider, ProxyHandler);
-  document["enkrypt"]["providers"][options.name] = provider;
+  document["yeti"]["providers"][options.name] = provider;
 };
 
 export default injectDocument;

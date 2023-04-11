@@ -95,12 +95,12 @@ import { TypeRegistry } from "@polkadot/types";
 import { TransactionSigner } from "../../libs/signer";
 import { Activity, ActivityStatus, ActivityType } from "@/types/activity";
 import ActivityState from "@/libs/activity-state";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import CustomScrollbar from "@action/components/custom-scrollbar/index.vue";
 import { BaseNetwork } from "@/types/base-network";
 
 const isSendDone = ref(false);
-const account = ref<EnkryptAccount>();
+const account = ref<YetiAccount>();
 const KeyRing = new PublicKeyRing();
 const route = useRoute();
 const router = useRouter();

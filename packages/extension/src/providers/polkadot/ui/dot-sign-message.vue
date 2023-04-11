@@ -53,9 +53,9 @@ import { onBeforeMount, ref } from "vue";
 import { isUtf8, u8aToString, u8aUnwrapBytes } from "@polkadot/util";
 import networks from "../networks";
 import { ProviderRequestOptions } from "@/types/provider";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { MessageSigner } from "./libs/signer";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { hexToBuffer } from "@yetiwallet/utils";
 
 const windowPromise = WindowPromiseHandler(0);
 
@@ -67,7 +67,7 @@ const Options = ref<ProviderRequestOptions>({
   tabId: 0,
 });
 const message = ref("");
-const account = ref({ address: "" } as EnkryptAccount);
+const account = ref({ address: "" } as YetiAccount);
 
 onBeforeMount(async () => {
   const { Request, options } = await windowPromise;
@@ -77,14 +77,14 @@ onBeforeMount(async () => {
     ? u8aToString(u8aUnwrapBytes(Request.value.params![0]))
     : Request.value.params![0];
 
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
 });
 
 const approve = async () => {
   const { Request, Resolve } = await windowPromise;
 
   const msg = Request.value.params![0] as `0x{string}`;
-  const account = Request.value.params![1] as EnkryptAccount;
+  const account = Request.value.params![1] as YetiAccount;
   MessageSigner({
     account,
     payload: hexToBuffer(msg),

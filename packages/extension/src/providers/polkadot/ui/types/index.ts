@@ -1,6 +1,6 @@
 import { BaseNetwork } from "@/types/base-network";
 import { ToTokenData } from "@/ui/action/types/token";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { ExtrinsicPayload } from "@polkadot/types/interfaces";
 
 export interface CallData {
@@ -35,10 +35,10 @@ export interface VerifyTransactionParams {
 export interface SignerTransactionOptions {
   payload: ExtrinsicPayload;
   network: BaseNetwork;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
 
 export interface SignerMessageOptions {
   payload: Buffer;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
