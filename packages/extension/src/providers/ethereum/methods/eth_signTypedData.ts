@@ -1,6 +1,6 @@
 import { getCustomError } from "@/libs/error";
 import { WindowPromise } from "@/libs/window-promise";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import { toBN } from "web3-utils";
 import EthereumProvider from "..";
 const method: MiddlewareFunction = function (

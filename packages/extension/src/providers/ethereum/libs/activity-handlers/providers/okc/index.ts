@@ -9,7 +9,7 @@ import {
 import { BaseNetwork } from "@/types/base-network";
 import { decodeTx } from "../../../transaction/decoder";
 import { NetworkEndpoints } from "./configs";
-import { toBase } from "@/libs/utils/units";
+import { toBase } from "@yetiwallet/utils";
 
 interface OkcRawInfo {
   blockHash: string;

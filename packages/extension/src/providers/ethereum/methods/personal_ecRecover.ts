@@ -1,6 +1,6 @@
 import { getCustomError } from "@/libs/error";
-import { MiddlewareFunction } from "@enkryptcom/types";
-import { hexToBuffer } from "@enkryptcom/utils";
+import { MiddlewareFunction } from "@yetiwallet/types";
+import { hexToBuffer } from "@yetiwallet/utils";
 import {
   ecrecover,
   fromRpcSig,

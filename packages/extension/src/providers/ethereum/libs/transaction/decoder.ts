@@ -6,7 +6,7 @@ import {
 } from "../assets-handlers/token-lists";
 import { SupportedNetworkNames } from "../assets-handlers/types/tokenbalance-mew";
 import DataDecode from "./data-decoder";
-import { bufferToHex } from "@enkryptcom/utils";
+import { bufferToHex } from "@yetiwallet/utils";
 import type EvmApi from "../api";
 import MarketData from "@/libs/market-data";
 import { EthereumRawInfo } from "@/types/activity";

@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import { v4 } from "uuid";
 
 const broadcastTx = (hexTx: string, network: NetworkNames): Promise<string> => {

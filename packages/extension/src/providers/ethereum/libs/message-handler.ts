@@ -5,12 +5,12 @@ import {
   ProviderConnectInfo,
 } from "../types";
 import {
-  EnkryptProviderEventMethods,
+  YetiProviderEventMethods,
   EthereumProvider,
   handleIncomingMessage as handleIncomingMessageType,
 } from "@/types/provider";
 import { getError } from "../../../libs/error";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 const subscriptionMap: Record<string, any> = {};
 const handleIncomingMessage: handleIncomingMessageType = (
   provider,
@@ -59,7 +59,7 @@ const handleIncomingMessage: handleIncomingMessageType = (
         type: jsonMsg.method,
       });
     } else if (
-      jsonMsg.method === EnkryptProviderEventMethods.persistentEvents
+      jsonMsg.method === YetiProviderEventMethods.persistentEvents
     ) {
       const initialEvent = jsonMsg.params[0] as RPCRequestType;
       if (initialEvent.method === "eth_subscribe") {

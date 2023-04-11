@@ -1,5 +1,5 @@
 import { getCustomError } from "@/libs/error";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import EthereumProvider from "..";
 import broadcastTx from "../libs/tx-broadcaster";
 const method: MiddlewareFunction = function (

@@ -1,4 +1,4 @@
-import { bufferToHex, hexToBuffer } from "@enkryptcom/utils";
+import { bufferToHex, hexToBuffer } from "@yetiwallet/utils";
 import { isHexStrict, toHex } from "web3-utils";
 import { rawDecode } from "ethereumjs-abi";
 import { DataDecodeResponse } from "./types";

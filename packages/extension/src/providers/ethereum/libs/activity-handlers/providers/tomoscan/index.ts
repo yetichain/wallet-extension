@@ -1,3 +1,4 @@
+import cacheFetch from "@/libs/cache-fetch";
 import { EvmNetwork } from "@/providers/ethereum/types/evm-network";
 import {
   Activity,
@@ -6,54 +7,43 @@ import {
   EthereumRawInfo,
 } from "@/types/activity";
 import { BaseNetwork } from "@/types/base-network";
-import { toBN } from "web3-utils";
+import { numberToHex } from "web3-utils";
 import { decodeTx } from "../../../transaction/decoder";
 import { NetworkEndpoints } from "./configs";
+import { TomoscanTxType } from "./types";
+const TTL = 30000;
 const getAddressActivity = async (
   address: string,
   endpoint: string
 ): Promise<EthereumRawInfo[]> => {
-  const transactions = fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  return cacheFetch(
+    {
+      url: `${endpoint}api/transaction/list?account=${address}`,
     },
-    body: JSON.stringify({
-      id: 0,
-      method: "flume_getTransactionsByParticipant",
-      params: [address],
-    }),
-  })
-    .then((res) => res.json())
-    .then((res) => res.result.items as EthereumRawInfo[]);
-
-  const transactionsReceipts = fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id: 0,
-      method: "flume_getTransactionReceiptsByParticipant",
-      params: [address],
-    }),
-  })
-    .then((res) => res.json())
-    .then((res) => res.result.items as EthereumRawInfo[]);
-  return Promise.all([transactions, transactionsReceipts]).then((responses) => {
-    let allInfo = responses[0].reverse().map((item) => {
-      const receipt = responses[1].find(
-        (r) => r.transactionHash === (item as any).hash
-      );
-      if (receipt) {
-        receipt.status =
-          (receipt.status as unknown as string) === "0x1" ? true : false;
-        return { ...item, ...receipt, data: (item as any).input };
-      }
-      return null;
+    TTL
+  ).then((res) => {
+    if (res.error) return [];
+    const results = res.data as TomoscanTxType[];
+    const newResults = results.map((tx) => {
+      const rawTx: EthereumRawInfo = {
+        blockHash: tx.blockHash,
+        blockNumber: numberToHex(tx.blockNumber),
+        contractAddress: tx.contractAddress,
+        data: tx.input,
+        effectiveGasPrice: numberToHex(tx.gasPrice),
+        from: tx.from,
+        to: tx.to === "" ? null : tx.to,
+        gas: numberToHex(tx.gas),
+        gasUsed: numberToHex(tx.gasUsed),
+        nonce: numberToHex(tx.nonce),
+        status: tx.status === "success",
+        transactionHash: tx.hash,
+        value: numberToHex(tx.value),
+        timestamp: tx.timestamp * 1000,
+      };
+      return rawTx;
     });
-    allInfo = allInfo.filter((i) => i !== null);
-    return allInfo.slice(0, 50) as EthereumRawInfo[];
+    return newResults.slice(0, 50) as EthereumRawInfo[];
   });
 };
 export default async (
@@ -61,10 +51,8 @@ export default async (
   address: string
 ): Promise<Activity[]> => {
   address = address.toLowerCase();
-  const enpoint =
-    NetworkEndpoints[network.name as keyof typeof NetworkEndpoints];
+  const enpoint = NetworkEndpoints[network.name];
   const activities = await getAddressActivity(address, enpoint);
-
   const Promises = activities.map((activity) => {
     return decodeTx(activity, network as EvmNetwork).then((txData) => {
       return {
@@ -78,13 +66,10 @@ export default async (
         status: activity.status
           ? ActivityStatus.success
           : ActivityStatus.failed,
-        timestamp: activity.timestamp
-          ? toBN(activity.timestamp).toNumber() * 1000
-          : 0,
+        timestamp: activity.timestamp ? activity.timestamp : 0,
         value: txData.tokenValue,
         transactionHash: activity.transactionHash,
         type: ActivityType.transaction,
-        nonce: activity.nonce,
         token: {
           decimals: txData.tokenDecimals,
           icon: txData.tokenImage,

@@ -1,5 +1,5 @@
 import { getCustomError } from "@/libs/error";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import EthereumProvider from "..";
 const method: MiddlewareFunction = function (
   this: EthereumProvider,

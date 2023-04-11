@@ -1,4 +1,4 @@
-import { CallbackFunction, MiddlewareFunction } from "@enkryptcom/types";
+import { CallbackFunction, MiddlewareFunction } from "@yetiwallet/types";
 import type EthereumProvider from "..";
 import { ProviderRPCRequest } from "@/types/provider";
 import { WindowPromise } from "@/libs/window-promise";
@@ -51,7 +51,7 @@ const method: MiddlewareFunction = async function (
       if (_payload.options && _payload.options.domain) {
         isAccountAccessPending = true;
         if (!isInitialized) {
-          _res(getCustomError("Enkrypt not initialized"));
+          _res(getCustomError("Yeti not initialized"));
           throttledOpenOnboard();
           return handleRemainingPromises();
         }

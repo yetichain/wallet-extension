@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 
 export interface TokenBalance {
   contract: string;
@@ -37,5 +37,13 @@ export type SupportedNetworkNames =
   | NetworkNames.ShidenEVM
   | NetworkNames.Canto
   | NetworkNames.Rootstock
+  | NetworkNames.Arbitrum
+  | NetworkNames.Gnosis
+  | NetworkNames.Avalanche
+  | NetworkNames.Fantom
+  | NetworkNames.Klaytn
+  | NetworkNames.Aurora
   | NetworkNames.ZkSyncGoerli
-  | NetworkNames.ZkSync;
+  | NetworkNames.ZkSync
+  | NetworkNames.TomoChain
+  | NetworkNames.Bitindi;

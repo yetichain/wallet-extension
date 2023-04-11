@@ -3,7 +3,7 @@ import { getCustomError } from "@/libs/error";
 import MarketData from "@/libs/market-data";
 import { CustomErc20Token, TokenType } from "@/libs/tokens-state/types";
 import { WindowPromise } from "@/libs/window-promise";
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import { isValidAddress } from "ethereumjs-util";
 import EthereumProvider from "..";
 import API from "../libs/api";
