@@ -1,5 +1,5 @@
 import ormlAssetHandler from "./libs/assetinfo-orml";
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 import assets from "./assets/acala-assets";
 import {
   SubstrateNetwork,

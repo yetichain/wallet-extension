@@ -1,5 +1,5 @@
 import assetHandler from "./libs/assetinfo-orml";
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 import assets from "./assets/bifrost-assets";
 import {
   SubstrateNetwork,

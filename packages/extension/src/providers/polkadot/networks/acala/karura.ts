@@ -1,4 +1,4 @@
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 import assets from "./assets/karura-assets";
 import {
   SubstrateNetwork,

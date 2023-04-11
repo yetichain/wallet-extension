@@ -1,4 +1,4 @@
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 import { subscanActivity } from "../../libs/activity-handlers";
 import wrapActivityHandler from "@/libs/activity-state/wrap-activity-handler";
 import assets from "./assets/shiden-assets";

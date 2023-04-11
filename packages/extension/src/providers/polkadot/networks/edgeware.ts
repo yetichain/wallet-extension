@@ -1,4 +1,4 @@
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 import { toBN } from "web3-utils";
 import { subscanActivity } from "../libs/activity-handlers";
 import {
