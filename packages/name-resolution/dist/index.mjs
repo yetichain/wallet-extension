@@ -58,7 +58,22 @@ var UDResolver = class {
       "888",
       "zil"
     ];
-    this.UDProvider = new Resolution();
+    this.UDProvider = new Resolution({
+      sourceConfig: {
+        uns: {
+          locations: {
+            Layer1: {
+              url: "https://nodes.mewapi.io/rpc/eth",
+              network: "mainnet"
+            },
+            Layer2: {
+              url: "https://nodes.mewapi.io/rpc/matic",
+              network: "polygon-mainnet"
+            }
+          }
+        }
+      }
+    });
     this.name = "ud";
   }
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-empty-function

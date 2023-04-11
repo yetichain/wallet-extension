@@ -1,7 +1,7 @@
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
         var info = gen[key](arg);
-        var value = info.value;
+        var {value} = info;
     } catch (error) {
         reject(error);
         return;
@@ -14,9 +14,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
 }
 function _asyncToGenerator(fn) {
     return function() {
-        var self = this, args = arguments;
-        return new Promise(function(resolve, reject) {
-            var gen = fn.apply(self, args);
+        const self = this; const args = arguments;
+        return new Promise((resolve, reject) => {
+            const gen = fn.apply(self, args);
             function _next(value) {
                 asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
             }
@@ -33,8 +33,8 @@ function _classCallCheck(instance, Constructor) {
     }
 }
 function _defineProperties(target, props) {
-    for(var i = 0; i < props.length; i++){
-        var descriptor = props[i];
+    for(let i = 0; i < props.length; i++){
+        const descriptor = props[i];
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
         if ("value" in descriptor) descriptor.writable = true;
@@ -46,10 +46,10 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor;
 }
-var __generator = this && this.__generator || function(thisArg, body) {
-    var f, y, t, g, _ = {
+const __generator = this && this.__generator || function(thisArg, body) {
+    let f; let y; let t; let g; let _ = {
         label: 0,
-        sent: function() {
+        sent() {
             if (t[0] & 1) throw t[1];
             return t[1];
         },
@@ -74,7 +74,7 @@ var __generator = this && this.__generator || function(thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while(_)try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (f = 1, y && (t = op[0] & 2 ? y.return : op[0] ? y.throw || ((t = y.return) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [
                 op[0] & 2,
                 t.value
@@ -141,24 +141,24 @@ var __generator = this && this.__generator || function(thisArg, body) {
         };
     }
 };
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = function(target, all) {
-    for(var name in all)__defProp(target, name, {
+const __defProp = Object.defineProperty;
+const __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+const __getOwnPropNames = Object.getOwnPropertyNames;
+const __hasOwnProp = Object.prototype.hasOwnProperty;
+const __export = function(target, all) {
+    for(const name in all)__defProp(target, name, {
         get: all[name],
         enumerable: true
     });
 };
-var __copyProps = function(to, from, except, desc) {
+const __copyProps = function(to, from, except, desc) {
     if (from && typeof from === "object" || typeof from === "function") {
-        var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
+        let _iteratorNormalCompletion = true; let _didIteratorError = false; let _iteratorError;
         try {
-            var _loop = function() {
-                var key = _step.value;
+            const _loop = function() {
+                const key = _step.value;
                 if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-                    get: function() {
+                    get() {
                         return from[key];
                     },
                     enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
@@ -182,37 +182,37 @@ var __copyProps = function(to, from, except, desc) {
     }
     return to;
 };
-var __toCommonJS = function(mod) {
+const __toCommonJS = function(mod) {
     return __copyProps(__defProp({}, "__esModule", {
         value: true
     }), mod);
 };
 // src/index.ts
-var src_exports = {};
+const src_exports = {};
 __export(src_exports, {
-    ENSResolver: function() {
+    ENSResolver() {
         return ens_default;
     },
-    UDResolver: function() {
+    UDResolver() {
         return ud_default;
     },
-    default: function() {
+    default() {
         return src_default;
     }
 });
 module.exports = __toCommonJS(src_exports);
 // src/ens/index.ts
-var import_ethers = require("ethers");
-var import_address_encoder = require("@ensdomains/address-encoder");
+const import_ethers = require("ethers");
+const import_address_encoder = require("@ensdomains/address-encoder");
 // src/utils.ts
-var getTLD = function(name) {
-    var labels = name.split(".");
+const getTLD = function(name) {
+    const labels = name.split(".");
     if (labels.length < 2) return "";
     return labels[labels.length - 1];
 };
 // src/ens/index.ts
-var ENSResolver = /*#__PURE__*/ function() {
-    "use strict";
+const ENSResolver = /* #__PURE__ */ function() {
+    
     function ENSResolver(options) {
         _classCallCheck(this, ENSResolver);
         this.options = options;
@@ -222,9 +222,9 @@ var ENSResolver = /*#__PURE__*/ function() {
         {
             key: "init",
             value: function init() {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
+                    return __generator(this, (_state) => {
                         _this.ENSProvider = new import_ethers.ethers.providers.JsonRpcProvider(_this.options.node);
                         return [
                             2
@@ -236,10 +236,10 @@ var ENSResolver = /*#__PURE__*/ function() {
         {
             key: "resolveReverseName",
             value: function resolveReverseName(address) {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    var nameAddress;
-                    return __generator(this, function(_state) {
+                    let nameAddress;
+                    return __generator(this, (_state) => {
                         switch(_state.label){
                             case 0:
                                 return [
@@ -264,11 +264,11 @@ var ENSResolver = /*#__PURE__*/ function() {
         {
             key: "resolveAddress",
             value: function resolveAddress(name) {
-                var coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
-                var _this = this;
+                const coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    var resolver;
-                    return __generator(this, function(_state) {
+                    let resolver;
+                    return __generator(this, (_state) => {
                         switch(_state.label){
                             case 0:
                                 return [
@@ -280,7 +280,7 @@ var ENSResolver = /*#__PURE__*/ function() {
                                 if (resolver) {
                                     return [
                                         2,
-                                        resolver.getAddress(import_address_encoder.formatsByName[coin].coinType).then(function(address) {
+                                        resolver.getAddress(import_address_encoder.formatsByName[coin].coinType).then((address) => {
                                             if (address) return address;
                                             return null;
                                         })
@@ -307,9 +307,10 @@ var ENSResolver = /*#__PURE__*/ function() {
 }();
 var ens_default = ENSResolver;
 // src/ud/index.ts
-var import_resolution = require("@unstoppabledomains/resolution");
-var UDResolver = /*#__PURE__*/ function() {
-    "use strict";
+const import_resolution = require("@unstoppabledomains/resolution");
+
+const UDResolver = /* #__PURE__ */ function() {
+    
     function UDResolver() {
         _classCallCheck(this, UDResolver);
         this.supportedTLDs = [
@@ -323,7 +324,22 @@ var UDResolver = /*#__PURE__*/ function() {
             "888",
             "zil"
         ];
-        this.UDProvider = new import_resolution.Resolution();
+        this.UDProvider = new import_resolution.Resolution({
+            sourceConfig: {
+                uns: {
+                    locations: {
+                        Layer1: {
+                            url: "https://nodes.mewapi.io/rpc/eth",
+                            network: "mainnet"
+                        },
+                        Layer2: {
+                            url: "https://nodes.mewapi.io/rpc/matic",
+                            network: "polygon-mainnet"
+                        }
+                    }
+                }
+            }
+        });
         this.name = "ud";
     }
     _createClass(UDResolver, [
@@ -332,48 +348,34 @@ var UDResolver = /*#__PURE__*/ function() {
             value: // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-empty-function
             function init() {
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
-                        return [
+                    return __generator(this, (_state) => [
                             2
-                        ];
-                    });
+                        ]);
                 })();
             }
         },
         {
             key: "resolveReverseName",
             value: function resolveReverseName(address) {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
-                        return [
+                    return __generator(this, (_state) => [
                             2,
-                            _this.UDProvider.reverse(address).then(function(name) {
-                                return name;
-                            }).catch(function() {
-                                return null;
-                            })
-                        ];
-                    });
+                            _this.UDProvider.reverse(address).then((name) => name).catch(() => null)
+                        ]);
                 })();
             }
         },
         {
             key: "resolveAddress",
             value: function resolveAddress(name) {
-                var coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
-                var _this = this;
+                const coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
-                        return [
+                    return __generator(this, (_state) => [
                             2,
-                            _this.UDProvider.addr(name, coin).then(function(address) {
-                                return address;
-                            }).catch(function() {
-                                return null;
-                            })
-                        ];
-                    });
+                            _this.UDProvider.addr(name, coin).then((address) => address).catch(() => null)
+                        ]);
                 })();
             }
         },
@@ -388,23 +390,24 @@ var UDResolver = /*#__PURE__*/ function() {
 }();
 var ud_default = UDResolver;
 // src/rns/index.ts
-var import_ethers2 = require("ethers");
-var ROOTSTOCK_RPC_NODE = "https://public-node.rsk.co";
-var RNS_REGISTRY_ADDRESS = "0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5";
-var stripHexPrefix = function(hex) {
+const import_ethers2 = require("ethers");
+
+const ROOTSTOCK_RPC_NODE = "https://public-node.rsk.co";
+const RNS_REGISTRY_ADDRESS = "0xcb868aeabd31e2b66f74e9a55cf064abb31a4ad5";
+const stripHexPrefix = function(hex) {
     return hex.slice(2);
 };
-var RNS_REGISTRY_ABI = [
+const RNS_REGISTRY_ABI = [
     "function resolver(bytes32 node) public view returns (address)"
 ];
-var RNS_ADDR_RESOLVER_ABI = [
+const RNS_ADDR_RESOLVER_ABI = [
     "function addr(bytes32 node) public view returns (address)"
 ];
-var RNS_NAME_RESOLVER_ABI = [
+const RNS_NAME_RESOLVER_ABI = [
     "function name(bytes32 node) external view returns (string)"
 ];
-var RNSResolver = /*#__PURE__*/ function() {
-    "use strict";
+const RNSResolver = /* #__PURE__ */ function() {
+    
     function RNSResolver() {
         _classCallCheck(this, RNSResolver);
         this.name = "rns";
@@ -413,9 +416,9 @@ var RNSResolver = /*#__PURE__*/ function() {
         {
             key: "init",
             value: function init() {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
+                    return __generator(this, (_state) => {
                         _this.RNSProvider = new import_ethers2.ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC_NODE);
                         _this.rnsRegistryContract = new import_ethers2.Contract(RNS_REGISTRY_ADDRESS, RNS_REGISTRY_ABI, _this.RNSProvider);
                         return [
@@ -428,10 +431,10 @@ var RNSResolver = /*#__PURE__*/ function() {
         {
             key: "resolveReverseName",
             value: function resolveReverseName(address) {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    var reverseRecordHash, resolverAddress, nameResolverContract, name;
-                    return __generator(this, function(_state) {
+                    let reverseRecordHash; let resolverAddress; let nameResolverContract; let name;
+                    return __generator(this, (_state) => {
                         switch(_state.label){
                             case 0:
                                 reverseRecordHash = import_ethers2.utils.namehash("".concat(stripHexPrefix(address), ".addr.reverse"));
@@ -472,11 +475,11 @@ var RNSResolver = /*#__PURE__*/ function() {
         {
             key: "resolveAddress",
             value: function resolveAddress(name) {
-                var _coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "RSK";
-                var _this = this;
+                const _coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "RSK";
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    var nameHash, resolverAddress, addrResolverContract, address;
-                    return __generator(this, function(_state) {
+                    let nameHash; let resolverAddress; let addrResolverContract; let address;
+                    return __generator(this, (_state) => {
                         switch(_state.label){
                             case 0:
                                 nameHash = import_ethers2.utils.namehash(name);
@@ -523,10 +526,10 @@ var RNSResolver = /*#__PURE__*/ function() {
     ]);
     return RNSResolver;
 }();
-var rns_default = RNSResolver;
+const rns_default = RNSResolver;
 // src/index.ts
-var NameResolver = /*#__PURE__*/ function() {
-    "use strict";
+const NameResolver = /* #__PURE__ */ function() {
+    
     function NameResolver(options) {
         _classCallCheck(this, NameResolver);
         this.ens = new ens_default(options.ens);
@@ -542,21 +545,19 @@ var NameResolver = /*#__PURE__*/ function() {
         {
             key: "resolveReverseName",
             value: function resolveReverseName(address) {
-                var _this = this;
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
-                        return [
+                    return __generator(this, (_state) => [
                             2,
-                            _this.initDone.then(function() {
-                                return Promise.all([
+                            _this.initDone.then(() => Promise.all([
                                     _this.ens.resolveReverseName(address),
                                     _this.rns.resolveReverseName(address),
                                     _this.ud.resolveReverseName(address)
-                                ]).then(function(results) {
-                                    var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
+                                ]).then((results) => {
+                                    let _iteratorNormalCompletion = true; let _didIteratorError = false; let _iteratorError;
                                     try {
                                         for(var _iterator = results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true){
-                                            var name = _step.value;
+                                            const name = _step.value;
                                             if (name !== null) return name;
                                         }
                                     } catch (err) {
@@ -574,30 +575,26 @@ var NameResolver = /*#__PURE__*/ function() {
                                         }
                                     }
                                     return null;
-                                });
-                            })
-                        ];
-                    });
+                                }))
+                        ]);
                 })();
             }
         },
         {
             key: "resolveAddress",
             value: function resolveAddress(name) {
-                var coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
-                var _this = this;
+                const coin = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "ETH";
+                const _this = this;
                 return _asyncToGenerator(function() {
-                    return __generator(this, function(_state) {
-                        return [
+                    return __generator(this, (_state) => [
                             2,
-                            _this.initDone.then(function() {
+                            _this.initDone.then(() => {
                                 if (_this.rns.isSupportedName(name)) return _this.rns.resolveAddress(name, coin);
                                 if (_this.ud.isSupportedName(name)) return _this.ud.resolveAddress(name, coin);
                                 if (_this.ens.isSupportedName(name)) return _this.ens.resolveAddress(name, coin);
                                 return null;
                             })
-                        ];
-                    });
+                        ]);
                 })();
             }
         }
@@ -607,6 +604,6 @@ var NameResolver = /*#__PURE__*/ function() {
 var src_default = NameResolver;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-    ENSResolver: ENSResolver,
-    UDResolver: UDResolver
+    ENSResolver,
+    UDResolver
 });
