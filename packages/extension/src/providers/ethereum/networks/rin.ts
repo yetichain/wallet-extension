@@ -1,5 +1,5 @@
 import wrapActivityHandler from "@/libs/activity-state/wrap-activity-handler";
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 import { RivetActivity } from "../libs/activity-handlers";
 import { EvmNetwork, EvmNetworkOptions } from "../types/evm-network";
 

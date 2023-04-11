@@ -1,7 +1,7 @@
 import wrapActivityHandler from "@/libs/activity-state/wrap-activity-handler";
 import { EvmNetwork, EvmNetworkOptions } from "../types/evm-network";
 import { EtherscanActivity } from "../libs/activity-handlers";
-import { CoingeckoPlatform, NetworkNames } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames } from "@yetiwallet/types";
 
 const edgOptions: EvmNetworkOptions = {
   name: NetworkNames.EdgeEVM,
