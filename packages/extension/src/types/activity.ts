@@ -1,5 +1,10 @@
 import { NetworkNames } from "@yetiwallet/types";
 import { BaseTokenOptions } from "./base-token";
+import {
+  TokenType,
+  TokenTypeTo,
+  StatusOptionsResponse,
+} from "@yetiwallet/swap";
 
 interface BTCInOuts {
   address: string;
@@ -65,25 +70,31 @@ enum ActivityStatus {
 
 enum ActivityType {
   transaction = "transaction",
+  swap = "swap",
 }
-
+interface SwapRawInfo {
+  fromToken: TokenType;
+  toToken: TokenTypeTo;
+  status: StatusOptionsResponse;
+}
 interface Activity {
   network: NetworkNames;
   from: string;
   to: string;
   value: string;
   timestamp: number;
+  nonce?: string;
   isIncoming: boolean;
   transactionHash: string;
   token: BaseTokenOptions;
   status: ActivityStatus;
   type: ActivityType;
-  swapId?: string;
   rawInfo?:
     | EthereumRawInfo
     | SubstrateRawInfo
     | SubscanExtrinsicInfo
-    | BTCRawInfo;
+    | BTCRawInfo
+    | SwapRawInfo;
 }
 
 export {
@@ -94,4 +105,5 @@ export {
   ActivityType,
   SubscanExtrinsicInfo,
   BTCRawInfo,
+  SwapRawInfo,
 };

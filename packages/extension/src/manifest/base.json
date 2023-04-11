@@ -2,8 +2,8 @@
   "author": "https://www.yetichain.com",
   "homepage_url": "https://www.yetichain.com",
   "version": "",
-  "name": "YETI: Web3.0 Wallet",
-  "short_name": "YETI",
+  "name": "Yeti: Web3.0 Blockchain Wallet",
+  "short_name": "Yeti",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -35,7 +35,7 @@
       "run_at": "document_start"
     }
   ],
-  "description": "Access to the Blockchain",
+  "description": "Everything in the blockchain made easy",
   "icons": {
     "16": "assets/img/icons/icon16.png",
     "32": "assets/img/icons/icon32.png",

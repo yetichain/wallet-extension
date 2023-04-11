@@ -22,7 +22,7 @@ function injectScript(settings: string) {
     container.insertBefore(scriptTag, container.children[0]);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error("YETI: Provider injection failed.", error);
+    console.error("Yeti: Provider injection failed.", error);
   }
 }
 sendToBackgroundFromCS({
