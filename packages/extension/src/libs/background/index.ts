@@ -75,7 +75,7 @@ class BackgroundHandler {
         });
       }
       return {
-        error: JSON.stringify(getCustomError("YETI: not implemented")),
+        error: JSON.stringify(getCustomError("Yeti: not implemented")),
       };
     }
     const tabInfo = TabInfo(await Browser.tabs.get(_tabid));

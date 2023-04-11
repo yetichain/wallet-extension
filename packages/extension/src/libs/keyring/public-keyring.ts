@@ -1,9 +1,4 @@
-import {
-  SignerType,
-  Errors,
-  WalletType,
-  YetiAccount,
-} from "@yetiwallet/types";
+import { SignerType, Errors, WalletType, YetiAccount } from "@yetiwallet/types";
 import { assert } from "chai";
 import { KeyRingBase } from "./keyring";
 class PublicKeyRing {
