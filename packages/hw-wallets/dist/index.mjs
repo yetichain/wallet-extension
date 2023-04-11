@@ -67,6 +67,11 @@ var bip44Paths = {
     basePath: "m/44'/60'/0'/0",
     label: "Ethereum"
   },
+  rootstock: {
+    path: "m/44'/137'/0'/0/{index}",
+    basePath: "m/44'/137'/0'/0",
+    label: "Rootstock"
+  },
   rootstockLedger: {
     path: "m/44'/137'/0'/{index}",
     basePath: "m/44'/137'/0'/0",
@@ -443,7 +448,8 @@ var supportedPaths3 = {
   [NetworkNames6.Matic]: [bip44Paths.ethereum],
   [NetworkNames6.EthereumClassic]: [bip44Paths.ethereumClassic],
   [NetworkNames6.Ropsten]: [bip44Paths.ethereumTestnet],
-  [NetworkNames6.Goerli]: [bip44Paths.ethereumTestnet]
+  [NetworkNames6.Goerli]: [bip44Paths.ethereumTestnet],
+  [NetworkNames6.Rootstock]: [bip44Paths.rootstock]
 };
 
 // src/trezor/index.ts
@@ -529,7 +535,7 @@ var TrezorEthereum = class {
       }).then((result) => {
         if (!result.success)
           throw new Error(result.payload.error);
-        const rv = BigInt(result.payload.v.replace("0x", ""));
+        const rv = BigInt(parseInt(result.payload.v, 16));
         const cv = tx.common.chainId() * 2n + 35n;
         return toRpcSig2(
           bigIntToHex2(rv - cv),
