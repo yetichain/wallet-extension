@@ -251,10 +251,7 @@ class KeyRing {
     return hwAcc;
   }
 
-  async renameAccount(
-    address: string,
-    newName: string
-  ): Promise<YetiAccount> {
+  async renameAccount(address: string, newName: string): Promise<YetiAccount> {
     const existingKeys = await this.getKeysObject();
     assert(existingKeys[address], Errors.KeyringErrors.AddressDoesntExists);
     const account = existingKeys[address];

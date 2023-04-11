@@ -3,7 +3,7 @@ import {
   Errors,
   SignerType as SignerType2,
   HWwalletType,
-  WalletType
+  WalletType,
 } from "@yetiwallet/types";
 import { entropyToMnemonic, generateMnemonic, mnemonicToEntropy } from "bip39";
 import { hexToBuffer, encrypt, decrypt } from "@yetiwallet/utils";
@@ -15,20 +15,23 @@ import assert from "assert";
 // src/configs.ts
 var configs_default = {
   STORAGE_KEYS: {
-    KEY_INFO: "enkrypt_keyInfo",
-    ENCRYPTED_MNEMONIC: "enkrypt_mnemonic",
-    ENCRYPTED_PRIVKEYS: "enkrypt_privkey",
-    PATH_INDEXES: "enkrypt_path_indexes"
+    KEY_INFO: "yeti_keyInfo",
+    ENCRYPTED_MNEMONIC: "yeti_mnemonic",
+    ENCRYPTED_PRIVKEYS: "yeti_privkey",
+    PATH_INDEXES: "yeti_path_indexes",
   },
   PRIVEY_BASE_PATH: "/privkey/",
-  MNEMONIC_STRENGTH: 128
+  MNEMONIC_STRENGTH: 128,
   // 12 words
 };
 
 // src/utils.ts
 import { SignerType } from "@yetiwallet/types";
 var pathParser = (basePath, index, type) => {
-  if ([SignerType.ecdsa, SignerType.ed25519, SignerType.sr25519].includes(type) && basePath === "//") {
+  if (
+    [SignerType.ecdsa, SignerType.ed25519, SignerType.sr25519].includes(type) &&
+    basePath === "//"
+  ) {
     return index === 0 ? "" : `//${--index}`;
   }
   return `${basePath}/${index}`;
@@ -53,31 +56,42 @@ var KeyRing = class {
       [SignerType2.ecdsa]: new PolkadotSigner(SignerType2.ecdsa),
       [SignerType2.ed25519]: new PolkadotSigner(SignerType2.ed25519),
       [SignerType2.sr25519]: new PolkadotSigner(SignerType2.sr25519),
-      [SignerType2.secp256k1btc]: new BitcoinSigner()
+      [SignerType2.secp256k1btc]: new BitcoinSigner(),
     };
   }
-  async init(password, {
-    strength = configs_default.MNEMONIC_STRENGTH,
-    mnemonic = generateMnemonic(strength)
-  } = {}) {
+  async init(
+    password,
+    {
+      strength = configs_default.MNEMONIC_STRENGTH,
+      mnemonic = generateMnemonic(strength),
+    } = {}
+  ) {
     assert(
-      !await this.#storage.get(configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC),
+      !(await this.#storage.get(
+        configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC
+      )),
       Errors.KeyringErrors.MnemonicExists
     );
     assert(password, Errors.KeyringErrors.NoPassword);
     const entropy = hexToBuffer(mnemonicToEntropy(mnemonic));
     const encrypted = await encrypt(entropy, password);
-    await this.#storage.set(configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC, encrypted);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC,
+      encrypted
+    );
   }
   async isInitialized() {
-    if (await this.#storage.get(configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC))
+    if (
+      await this.#storage.get(configs_default.STORAGE_KEYS.ENCRYPTED_MNEMONIC)
+    )
       return true;
     return false;
   }
   async #getPathIndex(basePath) {
-    const pathIndexes = await this.#storage.get(configs_default.STORAGE_KEYS.PATH_INDEXES) || {};
-    if (pathIndexes[basePath] === void 0)
-      return 0;
+    const pathIndexes =
+      (await this.#storage.get(configs_default.STORAGE_KEYS.PATH_INDEXES)) ||
+      {};
+    if (pathIndexes[basePath] === void 0) return 0;
     return pathIndexes[basePath] + 1;
   }
   async #getMnemonic(password) {
@@ -91,7 +105,7 @@ var KeyRing = class {
   async unlockMnemonic(password) {
     await Promise.all([
       this.#getMnemonic(password),
-      this.#getPrivateKeys(password)
+      this.#getPrivateKeys(password),
     ]).then((results) => {
       [this.#mnemonic, this.#privkeys] = results;
       this.#isLocked = false;
@@ -117,7 +131,7 @@ var KeyRing = class {
         privateKey: "",
         // we will manually set these
         publicKey: "",
-        address: ""
+        address: "",
       };
     } else {
       keypair = await this.#signers[key.signerType].generate(
@@ -133,7 +147,7 @@ var KeyRing = class {
       publicKey: keypair.publicKey,
       signerType: key.signerType,
       walletType: key.walletType,
-      isHardware: false
+      isHardware: false,
     };
   }
   async createAndSaveKey(key) {
@@ -148,27 +162,34 @@ var KeyRing = class {
       Errors.KeyringErrors.AddressExists
     );
     existingKeys[keyRecord.address] = keyRecord;
-    await this.#storage.set(configs_default.STORAGE_KEYS.KEY_INFO, existingKeys);
-    const pathIndexes = await this.#storage.get(configs_default.STORAGE_KEYS.PATH_INDEXES) || {};
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.KEY_INFO,
+      existingKeys
+    );
+    const pathIndexes =
+      (await this.#storage.get(configs_default.STORAGE_KEYS.PATH_INDEXES)) ||
+      {};
     pathIndexes[keyRecord.basePath] = keyRecord.pathIndex;
-    await this.#storage.set(configs_default.STORAGE_KEYS.PATH_INDEXES, pathIndexes);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.PATH_INDEXES,
+      pathIndexes
+    );
   }
   async sign(msgHash, options) {
     assert(!this.#isLocked, Errors.KeyringErrors.Locked);
     assert(
-      !Object.values(HWwalletType).includes(
-        options.walletType
-      ),
+      !Object.values(HWwalletType).includes(options.walletType),
       Errors.KeyringErrors.CannotUseKeyring
     );
     let keypair;
     if (options.walletType === WalletType.privkey) {
       const pubKey = (await this.getKeysArray()).find(
-        (i) => i.basePath === options.basePath && i.pathIndex === options.pathIndex
+        (i) =>
+          i.basePath === options.basePath && i.pathIndex === options.pathIndex
       ).publicKey;
       keypair = {
         privateKey: this.#privkeys[options.pathIndex.toString()],
-        publicKey: pubKey
+        publicKey: pubKey,
       };
     } else {
       keypair = await this.#signers[options.signerType].generate(
@@ -181,9 +202,7 @@ var KeyRing = class {
   async getEthereumEncryptionPublicKey(options) {
     assert(!this.#isLocked, Errors.KeyringErrors.Locked);
     assert(
-      !Object.values(HWwalletType).includes(
-        options.walletType
-      ),
+      !Object.values(HWwalletType).includes(options.walletType),
       Errors.KeyringErrors.CannotUseKeyring
     );
     assert(
@@ -199,9 +218,7 @@ var KeyRing = class {
   async ethereumDecrypt(encryptedMessage, options) {
     assert(!this.#isLocked, Errors.KeyringErrors.Locked);
     assert(
-      !Object.values(HWwalletType).includes(
-        options.walletType
-      ),
+      !Object.values(HWwalletType).includes(options.walletType),
       Errors.KeyringErrors.CannotUseKeyring
     );
     assert(
@@ -212,15 +229,13 @@ var KeyRing = class {
       this.#mnemonic,
       pathParser(options.basePath, options.pathIndex, options.signerType)
     );
-    return this.#signers[options.signerType].decrypt(
-      encryptedMessage,
-      keypair
-    );
+    return this.#signers[options.signerType].decrypt(encryptedMessage, keypair);
   }
   async getKeysObject() {
-    const jsonstr = await this.#storage.get(configs_default.STORAGE_KEYS.KEY_INFO);
-    if (!jsonstr)
-      return {};
+    const jsonstr = await this.#storage.get(
+      configs_default.STORAGE_KEYS.KEY_INFO
+    );
+    if (!jsonstr) return {};
     return jsonstr;
   }
   async getKeysArray() {
@@ -231,7 +246,10 @@ var KeyRing = class {
     assert(!existingKeys[account.address], Errors.KeyringErrors.AddressExists);
     const hwAcc = { isHardware: true, ...account };
     existingKeys[account.address] = hwAcc;
-    await this.#storage.set(configs_default.STORAGE_KEYS.KEY_INFO, existingKeys);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.KEY_INFO,
+      existingKeys
+    );
     return hwAcc;
   }
   async renameAccount(address, newName) {
@@ -240,7 +258,10 @@ var KeyRing = class {
     const account = existingKeys[address];
     account.name = newName;
     existingKeys[address] = account;
-    await this.#storage.set(configs_default.STORAGE_KEYS.KEY_INFO, existingKeys);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.KEY_INFO,
+      existingKeys
+    );
     return account;
   }
   async deleteAccount(address) {
@@ -251,14 +272,16 @@ var KeyRing = class {
       Errors.KeyringErrors.CantRemoveMnemonicAddress
     );
     delete existingKeys[address];
-    await this.#storage.set(configs_default.STORAGE_KEYS.KEY_INFO, existingKeys);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.KEY_INFO,
+      existingKeys
+    );
   }
   async #getPrivateKeys(keyringPassword) {
     const encrypted = await this.#storage.get(
       configs_default.STORAGE_KEYS.ENCRYPTED_PRIVKEYS
     );
-    if (!encrypted)
-      return {};
+    if (!encrypted) return {};
     const decrypted = await decrypt(encrypted, keyringPassword);
     return JSON.parse(decrypted.toString("utf-8"));
   }
@@ -270,7 +293,10 @@ var KeyRing = class {
       Buffer.from(JSON.stringify(allKeys), "utf-8"),
       keyringPassword
     );
-    await this.#storage.set(configs_default.STORAGE_KEYS.ENCRYPTED_PRIVKEYS, encrypted);
+    await this.#storage.set(
+      configs_default.STORAGE_KEYS.ENCRYPTED_PRIVKEYS,
+      encrypted
+    );
     this.#privkeys = allKeys;
   }
   async addKeyPair(keyPair, keyringPassword) {
@@ -280,7 +306,7 @@ var KeyRing = class {
       basePath: configs_default.PRIVEY_BASE_PATH,
       name: keyPair.name,
       signerType: keyPair.signerType,
-      walletType: WalletType.privkey
+      walletType: WalletType.privkey,
     });
     kpAcc.address = keyPair.address;
     kpAcc.publicKey = keyPair.publicKey;
@@ -308,6 +334,4 @@ var KeyRing = class {
   }
 };
 var src_default = KeyRing;
-export {
-  src_default as default
-};
+export { src_default as default };
