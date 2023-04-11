@@ -28,7 +28,7 @@
 import { PropType } from "vue";
 import { BaseNetwork } from "@/types/base-network";
 import DoneIcon from "@action/icons/common/done_icon.vue";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 const emit = defineEmits<{
   (e: "selected:account", address: string): void;
 }>();
@@ -38,7 +38,7 @@ defineProps({
     default: () => ({}),
   },
   account: {
-    type: Object as PropType<EnkryptAccount>,
+    type: Object as PropType<YetiAccount>,
     default: () => {
       return {};
     },

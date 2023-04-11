@@ -29,7 +29,7 @@
 import TrezorIcon from "@action/icons/hardware/trezor-icon.vue";
 import LedgerIcon from "@/ui/action/icons/hardware/ledger-icon.vue";
 import { PropType } from "vue";
-import { WalletType } from "@enkryptcom/types";
+import { WalletType } from "@yetiwallet/types";
 defineProps({
   walletType: {
     type: String as PropType<WalletType>,
