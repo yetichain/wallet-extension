@@ -46,7 +46,7 @@
 import SignLogo from "@action/icons/common/sign-logo.vue";
 import BaseButton from "@action/components/base-button/index.vue";
 import CommonPopup from "@action/views/common-popup/index.vue";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { getError } from "@/libs/error";
 import { ErrorCodes } from "@/providers/ethereum/types";
 import { WindowPromiseHandler } from "@/libs/window-promise";
@@ -58,10 +58,10 @@ import { EvmNetwork } from "../types/evm-network";
 
 const windowPromise = WindowPromiseHandler(3);
 const network = ref<EvmNetwork>(DEFAULT_EVM_NETWORK);
-const account = ref<EnkryptAccount>({
+const account = ref<YetiAccount>({
   name: "",
   address: "",
-} as EnkryptAccount);
+} as YetiAccount);
 const identicon = ref<string>("");
 const Options = ref<ProviderRequestOptions>({
   domain: "",
@@ -75,7 +75,7 @@ onBeforeMount(async () => {
   network.value = (await getNetworkByName(
     Request.value.params![2]
   )) as EvmNetwork;
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
   identicon.value = network.value.identicon(account.value.address);
   Options.value = options;
 });

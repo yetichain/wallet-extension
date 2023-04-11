@@ -1,5 +1,5 @@
 import type { Provider as InjectedProvider } from "../inject";
-import { ProviderError, SignerType } from "@enkryptcom/types";
+import { ProviderError, SignerType } from "@yetiwallet/types";
 import { NodeType } from "@/types/provider";
 export interface ProviderMessage {
   method: MessageMethod;

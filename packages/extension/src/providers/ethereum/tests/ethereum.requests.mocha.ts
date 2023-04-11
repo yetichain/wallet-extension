@@ -2,9 +2,9 @@ import { expect } from "chai";
 import { ProviderName, ProviderType, EthereumProvider } from "@/types/provider";
 import EthereumInject from "../inject";
 import { EthereumRequest } from "../types";
-import { OnMessageResponse } from "@enkryptcom/types";
+import { OnMessageResponse } from "@yetiwallet/types";
 import { getError } from "@/libs/error";
-import { EnkryptWindow } from "@/types/globals";
+import { YetiWindow } from "@/types/globals";
 
 const requestHandler = (request: string): OnMessageResponse => {
   const req = JSON.parse(request) as EthereumRequest;
@@ -39,8 +39,8 @@ const options = {
   type: ProviderType.evm,
   sendMessageHandler: providerSendMessage,
 };
-const tempWindow: EnkryptWindow = {
-  enkrypt: {
+const tempWindow: YetiWindow = {
+  yeti: {
     providers: {},
     settings: {
       evm: {

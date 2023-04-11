@@ -1,8 +1,8 @@
 import { InternalMethods, InternalOnMessageResponse } from "@/types/messenger";
 import { FeeMarketEIP1559Transaction } from "@ethereumjs/tx";
 import { SignerTransactionOptions, SignerMessageOptions } from "../types";
-import HWwallet from "@enkryptcom/hw-wallets";
-import { HWwalletType } from "@enkryptcom/types";
+import HWwallet from "@yetiwallet/hw-wallets";
+import { HWwalletType } from "@yetiwallet/types";
 import { bufferToHex, fromRpcSig, hashPersonalMessage } from "ethereumjs-util";
 import { getCustomError } from "@/libs/error";
 import sendUsingInternalMessengers from "@/libs/messenger/internal-messenger";

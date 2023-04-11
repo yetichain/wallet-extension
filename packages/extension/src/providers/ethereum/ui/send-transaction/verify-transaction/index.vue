@@ -93,10 +93,11 @@ import { DEFAULT_EVM_NETWORK, getNetworkByName } from "@/libs/utils/networks";
 import { TransactionSigner } from "../../libs/signer";
 import { ActivityStatus, Activity, ActivityType } from "@/types/activity";
 import ActivityState from "@/libs/activity-state";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import CustomScrollbar from "@action/components/custom-scrollbar/index.vue";
 import broadcastTx from "@/providers/ethereum/libs/tx-broadcaster";
 import { BaseNetwork } from "@/types/base-network";
+import { bigIntToHex } from "@ethereumjs/util";
 
 const KeyRing = new PublicKeyRing();
 const route = useRoute();
@@ -109,7 +110,7 @@ const isNft = false;
 const isProcessing = ref(false);
 const network = ref<BaseNetwork>(DEFAULT_EVM_NETWORK);
 const isSendDone = ref(false);
-const account = ref<EnkryptAccount>();
+const account = ref<YetiAccount>();
 const isPopup: boolean = getCurrentContext() === "new-window";
 const verifyScrollRef = ref<ComponentPublicInstance<HTMLElement>>();
 const isWindowPopup = ref(false);
@@ -152,27 +153,35 @@ const sendAction = async () => {
     transactionHash: "",
   };
   const activityState = new ActivityState();
-  const onHash = (hash: string) => {
-    activityState.addActivities(
-      [{ ...txActivity, ...{ transactionHash: hash } }],
-      { address: txData.fromAddress, network: network.value.name }
-    );
-    isSendDone.value = true;
-    if (getCurrentContext() === "popup") {
-      setTimeout(() => {
-        isProcessing.value = false;
-        router.go(-2);
-      }, 4500);
-    } else {
-      setTimeout(() => {
-        isProcessing.value = false;
-        window.close();
-      }, 1500);
-    }
-  };
   await tx
     .getFinalizedTransaction({ gasPriceType: txData.gasPriceType })
     .then(async (finalizedTx) => {
+      const onHash = (hash: string) => {
+        activityState.addActivities(
+          [
+            {
+              ...txActivity,
+              ...{
+                transactionHash: hash,
+                nonce: bigIntToHex(finalizedTx.nonce),
+              },
+            },
+          ],
+          { address: txData.fromAddress, network: network.value.name }
+        );
+        isSendDone.value = true;
+        if (getCurrentContext() === "popup") {
+          setTimeout(() => {
+            isProcessing.value = false;
+            router.go(-2);
+          }, 4500);
+        } else {
+          setTimeout(() => {
+            isProcessing.value = false;
+            window.close();
+          }, 1500);
+        }
+      };
       TransactionSigner({
         account: account.value!,
         network: network.value,
@@ -195,13 +204,10 @@ const sendAction = async () => {
                   address: txData.fromAddress,
                   network: network.value.name,
                 });
+                isProcessing.value = false;
+                errorMsg.value = error.message;
                 console.error("ERROR", error);
               });
-          })
-          .catch((error) => {
-            isProcessing.value = false;
-            console.error("error", error);
-            errorMsg.value = JSON.stringify(error);
           });
       });
     });

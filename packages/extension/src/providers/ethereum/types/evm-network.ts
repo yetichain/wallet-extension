@@ -6,13 +6,13 @@ import {
   formatFiatValue,
   formatFloatingPointValue,
 } from "@/libs/utils/number-formatter";
-import { fromBase } from "@/libs/utils/units";
+import { fromBase } from "@yetiwallet/utils";
 import { Activity } from "@/types/activity";
 import { BaseNetwork } from "@/types/base-network";
 import { BaseToken } from "@/types/base-token";
 import { NFTCollection } from "@/types/nft";
 import { AssetsType, ProviderName } from "@/types/provider";
-import { CoingeckoPlatform, NetworkNames, SignerType } from "@enkryptcom/types";
+import { CoingeckoPlatform, NetworkNames, SignerType } from "@yetiwallet/types";
 import BigNumber from "bignumber.js";
 import { BNLike, toChecksumAddress } from "ethereumjs-util";
 import { isAddress } from "web3-utils";
@@ -156,7 +156,7 @@ export class EvmNetwork extends BaseNetwork {
         ).value,
         decimals: this.decimals,
         sparkline: nativeMarketData
-          ? new Sparkline(nativeMarketData.sparkline_in_7d.price, 25).dataUri
+          ? new Sparkline(nativeMarketData.sparkline_in_7d.price, 25).dataValues
           : "",
         priceChangePercentage:
           nativeMarketData?.price_change_percentage_7d_in_currency ?? 0,
@@ -275,7 +275,7 @@ export class EvmNetwork extends BaseNetwork {
         asset.sparkline = new Sparkline(
           marketInfo.sparkline_in_7d.price,
           25
-        ).dataUri;
+        ).dataValues;
         asset.priceChangePercentage =
           marketInfo.price_change_percentage_7d_in_currency || 0;
       }

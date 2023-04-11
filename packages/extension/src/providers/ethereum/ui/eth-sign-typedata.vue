@@ -58,15 +58,15 @@ import {
   TypedDataUtils,
   SignTypedDataVersion,
 } from "@metamask/eth-sig-util";
-import { bufferToHex } from "@enkryptcom/utils";
+import { bufferToHex } from "@yetiwallet/utils";
 import { EvmNetwork } from "../types/evm-network";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 
 const network = ref<EvmNetwork>(DEFAULT_EVM_NETWORK);
-const account = ref<EnkryptAccount>({
+const account = ref<YetiAccount>({
   name: "",
   address: "",
-} as EnkryptAccount);
+} as YetiAccount);
 const identicon = ref<string>("");
 const windowPromise = WindowPromiseHandler(4);
 const Options = ref<ProviderRequestOptions>({
@@ -82,7 +82,7 @@ onMounted(async () => {
   network.value = (await getNetworkByName(
     Request.value.params![3]
   )) as EvmNetwork;
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
   identicon.value = network.value.identicon(account.value.address);
   Options.value = options;
   try {

@@ -141,19 +141,18 @@ import { DecodedTx, EthereumTransaction } from "../libs/transaction/types";
 import Transaction from "@/providers/ethereum/libs/transaction";
 import Web3Eth from "web3-eth";
 import { EvmNetwork } from "../types/evm-network";
-import { fromBase } from "@/libs/utils/units";
 import { decodeTx } from "../libs/transaction/decoder";
 import { ProviderRequestOptions } from "@/types/provider";
 import BigNumber from "bignumber.js";
 import { GasFeeType, GasPriceTypes } from "@/providers/common/types";
 import MarketData from "@/libs/market-data";
 import { defaultGasCostVals } from "@/providers/common/libs/default-vals";
-import { EnkryptAccount, NetworkNames } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { TransactionSigner } from "./libs/signer";
 import { Activity, ActivityStatus, ActivityType } from "@/types/activity";
 import { generateAddress } from "ethereumjs-util";
 import ActivityState from "@/libs/activity-state";
-import { bigIntToBuffer } from "@enkryptcom/utils";
+import { bigIntToBuffer, bigIntToHex, fromBase } from "@yetiwallet/utils";
 import broadcastTx from "../libs/tx-broadcaster";
 import TokenSigs from "../libs/transaction/lists/tokenSigs";
 import AlertIcon from "@action/icons/send/alert-icon.vue";
@@ -170,10 +169,10 @@ const approvalAmount = ref("");
 const network = ref<EvmNetwork>(DEFAULT_EVM_NETWORK);
 const marketdata = new MarketData();
 const gasCostValues = ref<GasFeeType>(defaultGasCostVals);
-const account = ref<EnkryptAccount>({
+const account = ref<YetiAccount>({
   name: "",
   address: "",
-} as EnkryptAccount);
+} as YetiAccount);
 const identicon = ref<string>("");
 const windowPromise = WindowPromiseHandler(3);
 const Options = ref<ProviderRequestOptions>({
@@ -192,7 +191,7 @@ onBeforeMount(async () => {
   network.value = (await getNetworkByName(
     Request.value.params![2]
   )) as EvmNetwork;
-  account.value = Request.value.params![1] as EnkryptAccount;
+  account.value = Request.value.params![1] as YetiAccount;
   identicon.value = network.value.identicon(account.value.address);
   Options.value = options;
   if (network.value.api) {
@@ -274,10 +273,7 @@ onBeforeMount(async () => {
         fiatSymbol: "USD",
       },
     };
-    selectedFee.value =
-      network.value.name === NetworkNames.Matic
-        ? GasPriceTypes.FASTEST
-        : GasPriceTypes.REGULAR;
+    selectedFee.value = GasPriceTypes.REGULAR;
   });
 });
 
@@ -322,10 +318,21 @@ const approve = async () => {
         };
         const onHash = (hash: string) => {
           activityState
-            .addActivities([{ ...txActivity, ...{ transactionHash: hash } }], {
-              address: txActivity.from,
-              network: network.value.name,
-            })
+            .addActivities(
+              [
+                {
+                  ...txActivity,
+                  ...{
+                    transactionHash: hash,
+                    nonce: bigIntToHex(finalizedTx.nonce),
+                  },
+                },
+              ],
+              {
+                address: txActivity.from,
+                network: network.value.name,
+              }
+            )
             .then(() => {
               Resolve.value({
                 result: JSON.stringify(hash),

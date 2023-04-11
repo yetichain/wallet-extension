@@ -1,6 +1,6 @@
 import { BaseNetwork } from "@/types/base-network";
 import { ToTokenData } from "@/ui/action/types/token";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import {
   FeeMarketEIP1559Transaction,
   Transaction as LegacyTransaction,
@@ -28,13 +28,13 @@ export interface VerifyTransactionParams {
 export interface SignerTransactionOptions {
   payload: FeeMarketEIP1559Transaction | LegacyTransaction;
   network: BaseNetwork;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
 
 export interface SignerMessageOptions {
   payload: Buffer;
   network: BaseNetwork;
-  account: EnkryptAccount;
+  account: YetiAccount;
 }
 
 export { GasFeeInfo };

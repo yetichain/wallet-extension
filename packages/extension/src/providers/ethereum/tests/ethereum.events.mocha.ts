@@ -2,8 +2,8 @@ import { expect } from "chai";
 import { ProviderName, ProviderType, EthereumProvider } from "@/types/provider";
 import EthereumInject from "../inject";
 import { MessageMethod, EmitEvent } from "../types";
-import { OnMessageResponse } from "@enkryptcom/types";
-import { EnkryptWindow } from "@/types/globals";
+import { OnMessageResponse } from "@yetiwallet/types";
+import { YetiWindow } from "@/types/globals";
 
 const providerSendMessage = async (
   provider: ProviderName,
@@ -18,8 +18,8 @@ const options = {
   type: ProviderType.evm,
   sendMessageHandler: providerSendMessage,
 };
-const tempWindow: EnkryptWindow = {
-  enkrypt: {
+const tempWindow: YetiWindow = {
+  yeti: {
     providers: {},
     settings: {
       evm: {
@@ -40,7 +40,7 @@ describe("Test injected Ethereum", () => {
     const provider = tempWindow[ProviderName.ethereum] as EthereumProvider;
     expect(provider.name).to.equal(ProviderName.ethereum);
     expect(provider.chainId).to.equal(null);
-    expect(provider.isEnkrypt).to.equal(true);
+    expect(provider.isYeti).to.equal(true);
   });
 });
 

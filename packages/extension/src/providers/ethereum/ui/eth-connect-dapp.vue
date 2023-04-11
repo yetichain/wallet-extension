@@ -9,7 +9,7 @@
     </template>
 
     <template #content>
-      <h2>Connect with Enkrypt</h2>
+      <h2>Connect with Yeti</h2>
 
       <div class="common-popup__block no-inset">
         <div class="common-popup__account">
@@ -70,13 +70,13 @@ import InfoIconGray from "@action/icons/common/info-icon-gray.vue";
 import SelectAccountInput from "@action/components/select-account-input/index.vue";
 import ModalAccounts from "@action/views/modal-accounts/index.vue";
 import { AccountsHeaderData } from "@action/types/account";
-import { EnkryptAccount } from "@enkryptcom/types";
+import { YetiAccount } from "@yetiwallet/types";
 import { getNetworkByName, DEFAULT_EVM_NETWORK } from "@/libs/utils/networks";
 import { WindowPromiseHandler } from "@/libs/window-promise";
 import { EvmNetwork } from "../types/evm-network";
 import { ProviderRequestOptions } from "@/types/provider";
 import PublicKeyRing from "@/libs/keyring/public-keyring";
-import { fromBase } from "@/libs/utils/units";
+import { fromBase } from "@yetiwallet/utils";
 import { getError } from "@/libs/error";
 import { ErrorCodes } from "../types";
 import AccountState from "../libs/accounts-state";
@@ -91,7 +91,7 @@ const accountHeaderData = ref<AccountsHeaderData>({
   selectedAccount: {
     name: "",
     address: "",
-  } as EnkryptAccount,
+  } as YetiAccount,
   activeBalances: [],
 });
 
@@ -159,7 +159,7 @@ const toggleAccounts = () => {
   showAccounts.value = !showAccounts.value;
 };
 
-const onSelectedAddressChanged = async (newAccount: EnkryptAccount) => {
+const onSelectedAddressChanged = async (newAccount: YetiAccount) => {
   accountHeaderData.value.selectedAccount = newAccount;
   displayAddress.value = network.value.displayAddress(newAccount.address);
   identicon.value = network.value.identicon(newAccount.address);
