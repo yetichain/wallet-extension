@@ -1,6 +1,6 @@
-import { SignerType } from "@enkryptcom/types";
+import { SignerType } from "@yetiwallet/types";
 import { u8aToHex, u8aConcat, hexToU8a } from "@polkadot/util";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 import { GenericExtrinsicPayload } from "@polkadot/types";
 
 export const TYPE_PREFIX = {

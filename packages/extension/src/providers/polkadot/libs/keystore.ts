@@ -2,8 +2,8 @@ import { decodePair } from "@polkadot/keyring/pair/decode";
 import type { KeyringPair$Json } from "@polkadot/keyring/types";
 import { hexToU8a, isHex, u8aToHex } from "@polkadot/util";
 import { PolkadotSignerTypes } from "../types";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
-import { KeyPairAdd, SignerType } from "@enkryptcom/types";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
+import { KeyPairAdd, SignerType } from "@yetiwallet/types";
 
 const getAccountFromJSON = (
   json: KeyringPair$Json,

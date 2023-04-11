@@ -1,7 +1,7 @@
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import SubstrateProvider from "..";
 import { ProviderRPCRequest } from "@/types/provider";
-import { polkadotEncodeAddress } from "@enkryptcom/utils";
+import { polkadotEncodeAddress } from "@yetiwallet/utils";
 import { SignerPayloadRaw } from "@polkadot/types/types";
 import { getCustomError } from "@/libs/error";
 import { WindowPromise } from "@/libs/window-promise";

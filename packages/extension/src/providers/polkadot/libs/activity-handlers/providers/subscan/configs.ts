@@ -1,4 +1,4 @@
-import { NetworkNames } from "@enkryptcom/types";
+import { NetworkNames } from "@yetiwallet/types";
 
 const NetworkEndpoints = {
   [NetworkNames.Polkadot]: "https://polkadot.api.subscan.io/",

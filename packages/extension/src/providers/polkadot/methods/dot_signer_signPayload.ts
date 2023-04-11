@@ -1,4 +1,4 @@
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import SubstrateProvider from "..";
 import { WindowPromise } from "@/libs/window-promise";
 import { ProviderRPCRequest } from "@/types/provider";

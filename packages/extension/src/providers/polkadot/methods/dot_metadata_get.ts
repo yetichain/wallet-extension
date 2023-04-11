@@ -1,4 +1,4 @@
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import SubstrateProvider from "..";
 import MetadataStorage from "../libs/metadata-storage";
 const method: MiddlewareFunction = function (

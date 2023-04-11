@@ -2,7 +2,7 @@ import {
   CallbackFunction,
   MiddlewareFunction,
   SignerType,
-} from "@enkryptcom/types";
+} from "@yetiwallet/types";
 import SubstrateProvider from "..";
 import { WindowPromise } from "@/libs/window-promise";
 import PublicKeyRing from "@/libs/keyring/public-keyring";

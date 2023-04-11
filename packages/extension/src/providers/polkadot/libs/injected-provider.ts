@@ -7,7 +7,7 @@ import Accounts from "./accounts";
 import Metadata from "./metadata";
 import Provider from "./provider";
 import Signer from "./signer";
-import { RPCRequestType } from "@enkryptcom/types";
+import { RPCRequestType } from "@yetiwallet/types";
 
 class InjectedProvider implements SubstrateInjectedProvider {
   accounts: Accounts;

@@ -1,4 +1,4 @@
-import { MiddlewareFunction } from "@enkryptcom/types";
+import { MiddlewareFunction } from "@yetiwallet/types";
 import SubstrateProvider from "..";
 import { ProviderRPCRequest } from "@/types/provider";
 import { getCustomError } from "@/libs/error";
