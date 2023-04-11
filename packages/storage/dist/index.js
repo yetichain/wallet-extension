@@ -234,7 +234,7 @@ var LocalForage = /*#__PURE__*/ function() {
         this.storage = import_localforage.default.createInstance({
             name: this.namespace,
             driver: drivers,
-            storeName: "enkrypt_db"
+            storeName: "yeti_db"
         });
     }
     _createClass(LocalForage, [

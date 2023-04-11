@@ -9,7 +9,7 @@ var LocalForage = class {
     this.storage = LocalForageLib.createInstance({
       name: this.namespace,
       driver: drivers,
-      storeName: "enkrypt_db"
+      storeName: "yeti_db"
     });
   }
   async set(items) {
